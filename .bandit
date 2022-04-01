@@ -1,0 +1,3 @@
+[bandit]
+targets: cellfree
+exclude: tests
