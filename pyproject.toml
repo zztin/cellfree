@@ -112,6 +112,7 @@ repository = "https://github.com/zztin/cellfree"
 
 [tool.poetry.dependencies]
 python = "^3.8"
+matplotlib = "^3.5.1"
 
 [tool.poetry.dev-dependencies]
 # task management
@@ -138,6 +139,8 @@ pre-commit = "^2.2.0"
 # documentation
 mkdocs = "^1.1"
 mkdocs-material = "^7.0.6"
+Sphinx = "^4.5.0"
+myst-parser = "^0.17.0"
 
 [build-system]
 requires = ["poetry>=1.0.0"]
