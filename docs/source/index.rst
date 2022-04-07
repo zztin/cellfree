@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to cellfree's documentation!
+cellfree
 ====================================
 
 .. toctree::
@@ -12,7 +12,7 @@ Welcome to cellfree's documentation!
 
 
 
-Indices and tables
+Test my customized doc rst!
 ==================
 
 * :ref:`genindex`
