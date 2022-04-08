@@ -145,3 +145,6 @@ myst-parser = "^0.17.0"
 [build-system]
 requires = ["poetry>=1.0.0"]
 build-backend = "poetry.masonry.api"
+
+[tool.poetry.scripts]
+cellfree = "cellfree.cmd.cellfree:main"
