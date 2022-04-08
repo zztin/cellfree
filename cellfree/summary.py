@@ -4,8 +4,10 @@ import pysam
 class RunSummary:
     def __init__(self):
         raise NotImplementedError
+
     def collect(self):
         raise NotImplementedError
+
 
 class EndMotifCollect(RunSummary):
     def __init__(self):
@@ -15,6 +17,7 @@ class EndMotifCollect(RunSummary):
         self.fwd_end_3_prime = None
         raise NotImplementedError
 
+
 class LengthCollect(RunSummary):
     def __init__(self):
         self.simple_molecule_length = None
@@ -23,6 +26,7 @@ class LengthCollect(RunSummary):
         self.unmapped_molecules_length = None
 
         raise NotImplementedError
+
 
 class CircularDnaCollect(RunSummary):
     def __init__(self):
@@ -35,7 +39,4 @@ class CircularDnaCollect(RunSummary):
 class Export:
     def __init__(self):
         self.data = None
-        self.format = None # tsv, pickle.gz, ml_input
-
-
-
+        self.format = None  # tsv, pickle.gz, ml_input

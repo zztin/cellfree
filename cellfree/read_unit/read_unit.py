@@ -3,6 +3,3 @@
 # A molecule can contain multiple reads.
 # A molecule that mapped to different locations are molecule that contains Structure Variants (SV). They contains reads with same read name but different mapping location.
 # Read = Fragment in SingleCellMultiOmics
-
-
-
