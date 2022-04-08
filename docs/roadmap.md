@@ -14,6 +14,8 @@ features.
 Input file format is [bam files](https://samtools.github.io/hts-specs/SAMv1.pdf). 
 Use [samtools](http://www.htslib.org) to sort and create index.
 
+(Later on we can discuss if we want to harness information from raw fastq files and add relevant functionalities.)
+
 Functionalities of this package is listed below:
 
 
