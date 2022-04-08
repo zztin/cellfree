@@ -1,6 +1,6 @@
 import click
 
-from cellfree.cmd import bam, motif
+from cellfree.cmd import bam, motifs
 
 
 @click.group()
@@ -16,4 +16,4 @@ def main(verbose, conf):
 
 
 main.add_command(bam.main)
-main.add_command(motif.main)
+main.add_command(motifs.main)
