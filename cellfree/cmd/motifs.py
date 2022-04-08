@@ -1,5 +1,6 @@
 import click
 
+
 @click.command()
 @click.option("--bamfile", help="Single bamfile")
 def main(bamfile):

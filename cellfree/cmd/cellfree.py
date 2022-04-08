@@ -1,13 +1,15 @@
 import click
-from cellfree.cmd import bam
-from cellfree.cmd import motif
+
+from cellfree.cmd import bam, motif
 
 
 @click.group()
-@click.option("--verbose",
-              type=click.Choice(["debug", "info", "warning", "error", "critical"]),
-              default="info",
-              help="Verbose level corresponding to logging level")
+@click.option(
+    "--verbose",
+    type=click.Choice(["debug", "info", "warning", "error", "critical"]),
+    default="info",
+    help="Verbose level corresponding to logging level",
+)
 @click.option("--conf", help="Configuration file")
 def main(verbose, conf):
     pass

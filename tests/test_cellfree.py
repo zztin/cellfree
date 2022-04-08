@@ -1,7 +1,7 @@
+from click.testing import CliRunner
+
 import cellfree.cmd.bam as bam
 import cellfree.cmd.motifs as motifs
-
-from click.testing import CliRunner
 
 
 def test_bam():

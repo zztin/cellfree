@@ -9,23 +9,27 @@
 
 # Molecule contains read1 and read2. Start and end coordinate of the "fragment"
 
+
 class Molecule:
     def __init__(self, width, height):
 
         raise NotImplementedError
 
+
 class DnaMolecule(Molecule):
     def __init__(self, width, height):
-        fragments = [] # list
+        fragments = []  # list
         molecule_base_quality = []
         molecule_mapping_quality = []
         map_coordinate = None
         strand = None
-        adapter_sequence = None # to check with soft clip bases
+        adapter_sequence = None  # to check with soft clip bases
         softclips = None  # list of bases
         sequence = None
-        genome_version = None # should be the same as the tracks. Should be checked a level up.
-        circular = False # bool
+        genome_version = (
+            None  # should be the same as the tracks. Should be checked a level up.
+        )
+        circular = False  # bool
         unmapped = False
         raise NotImplementedError
 
@@ -51,7 +55,6 @@ class DnaMolecule(Molecule):
 
     def is_circular(self):
         raise NotImplementedError
-
 
 
 class DnaBisulfideMolecule(DnaMolecule):
