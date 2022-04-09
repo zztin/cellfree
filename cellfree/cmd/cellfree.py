@@ -1,6 +1,6 @@
 import click
 
-from cellfree.cmd import bam, motifs
+from cellfree.cmd import prepare, end_motif, all
 
 
 @click.group()
@@ -15,5 +15,6 @@ def main(verbose, conf):
     pass
 
 
-main.add_command(bam.main)
-main.add_command(motifs.main)
+main.add_command(prepare.prepare)
+main.add_command(end_motif.end_motif)
+main.add_command(all.all)
