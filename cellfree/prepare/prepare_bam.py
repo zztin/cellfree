@@ -108,4 +108,3 @@ def prepare_bam_single_thread(
 
         # Reached the end of the generator
         write_status(out_bam_path,'Reached end. All ok!')
-
