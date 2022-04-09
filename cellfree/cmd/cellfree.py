@@ -1,6 +1,7 @@
 import click
 
 from cellfree.cmd import prepare, end_motif, all
+from cellfree.algorithm import bam
 
 
 @click.group()
@@ -15,6 +16,14 @@ def main(verbose, conf):
     pass
 
 
+@click.command()
+@click.option("--bamfile", help="Single bamfile")
+def tag(bamfile):
+    bam.run_tagging(bamfile)
+
+
 main.add_command(prepare.prepare)
+main.add_command(tag)
 main.add_command(end_motif.end_motif)
 main.add_command(all.all)
+
