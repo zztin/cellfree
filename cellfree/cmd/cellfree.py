@@ -15,6 +15,6 @@ def main(verbose, conf):
     pass
 
 
-main.add_command(prepare.main)
-main.add_command(end_motif.main)
-main.add_command(all.main)
+main.add_command(prepare.prepare)
+main.add_command(end_motif.end_motif)
+main.add_command(all.all)

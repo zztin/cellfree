@@ -3,6 +3,6 @@ from cellfree.algorithm import end_motif
 
 
 @click.command()
-@click.option("--bamfile", help="Single bamfile")
-def main(bamfile):
-    end_motif.run(bamfile)
+@click.option("--prepared-bamfile", help="Single bamfile")
+def end_motif(prepared_bamfile):
+    end_motif.run(prepared_bamfile)
