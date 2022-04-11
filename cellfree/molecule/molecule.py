@@ -1,3 +1,9 @@
+import pysam
+from dataclasses import dataclass
+
+
+
+###############
 # A molecule can contain multiple reads mapping at the same location. (PCR/ amplification Deduplication)
 
 # A molecule that mapped to different locations are molecule that contains Structure Variants (SV). These
@@ -9,7 +15,7 @@
 
 # Molecule contains read1 and read2. Start and end coordinate of the "fragment"
 
-
+@dataclass
 class Molecule:
     def __init__(self, width, height):
 
@@ -55,6 +61,7 @@ class DnaMolecule(Molecule):
 
     def is_circular(self):
         raise NotImplementedError
+
 
 
 class DnaBisulfideMolecule(DnaMolecule):
