@@ -1,7 +1,7 @@
 import click
 
-from cellfree.cmd import prepare, end_motif, all
 from cellfree.algorithm import bam
+from cellfree.cmd import prepare, end_motif, tsv, all
 
 
 @click.group()
@@ -25,5 +25,6 @@ def tag(bamfile):
 main.add_command(prepare.prepare)
 main.add_command(tag)
 main.add_command(end_motif.end_motif)
+main.add_command(tsv.tsv)
 main.add_command(all.all)
 
