@@ -145,4 +145,7 @@ cython_debug/
 # poetry
 poetry.lock
 
+# mac
+.idea/
+
 # End of https://www.toptal.com/developers/gitignore/api/python

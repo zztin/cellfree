@@ -7,8 +7,11 @@ import cellfree
 from datetime import datetime
 from itertools import chain
 from singlecellmultiomics.molecule.consensus import calculate_consensus
-
-
+from cellfree.read_unit.chic import CHICFragment
+from singlecellmultiomics.molecule import MoleculeIterator
+from singlecellmultiomics.molecule.chic import CHICMolecule
+from singlecellmultiomics.bamProcessing.bamFunctions import get_reference_from_pysam_alignmentFile
+from itertools import chain
 
 
 def write_status(output_path, message):
@@ -20,8 +23,6 @@ def write_status(output_path, message):
 def prepare_bam_single_thread(
         input_bam_path,
         out_bam_path,
-        molecule_iterator = None,
-        molecule_iterator_args = None,
         consensus_model = None,
         consensus_model_args={}, # Clearly the consensus model class and arguments should be part of molecule
         ignore_bam_issues=False,
@@ -29,8 +30,10 @@ def prepare_bam_single_thread(
         no_source_reads=False
         ):
 
+
     input_bam = pysam.AlignmentFile(input_bam_path, "rb", ignore_truncation=ignore_bam_issues, threads=4)
     input_header = input_bam.header.as_dict()
+    reference = get_reference_from_pysam_alignmentFile(input_bam_path)
 
 
     # Write provenance information to BAM header
@@ -44,28 +47,20 @@ def prepare_bam_single_thread(
 
     print(f'Started writing to {out_bam_path}')
 
-
-    molecule_iterator_args = prefetch(molecule_iterator_args['contig'],
-                                    molecule_iterator_args['start'],
-                                    molecule_iterator_args['end'],
-                                    molecule_iterator_args['start'],
-                                    molecule_iterator_args['end'],
-                                    molecule_iterator_args)
-
-
-    molecule_iterator_args_wo_alignment = {k:v for k, v in molecule_iterator_args.items() if k != 'alignments'}
-    molecule_iterator_args_wo_alignment_unmapped = molecule_iterator_args_wo_alignment.copy()
-    molecule_iterator_args_wo_alignment_unmapped['contig'] = '*'
-
-    molecule_iterator_exec = chain(
-                molecule_iterator(input_bam, **molecule_iterator_args_wo_alignment_unmapped), molecule_iterator(input_bam, **molecule_iterator_args_wo_alignment),
-                )
-
-
-    print('Params:',molecule_iterator_args)
     read_groups = dict()  # Store unique read groups in this dict
 
     with sorted_bam_file(out_bam_path, header=input_header, read_groups=read_groups) as out:
+
+        molecule_iterator_exec = chain(MoleculeIterator(
+            alignments=input_bam,
+            moleculeClass=CHICMolecule,
+            fragmentClass=CHICFragment,
+            every_fragment_as_molecule=False,
+            perform_qflag=False,
+            molecule_class_args={"reference": reference, "max_associated_fragments": 200},
+            fragment_class_args={"assignment_radius": 4},
+            max_buffer_size=1000000,
+            yield_overflow=False))
         try:
             for i, molecule in enumerate(molecule_iterator_exec):
 
@@ -108,3 +103,32 @@ def prepare_bam_single_thread(
 
         # Reached the end of the generator
         write_status(out_bam_path,'Reached end. All ok!')
+
+def read_prepared_bam_to_molecules(input_prepared_bam,
+                                   head=None,
+                                   ignore_bam_issues=False,
+                                   ):
+    input_bam = pysam.AlignmentFile(input_prepared_bam, "rb", ignore_truncation=ignore_bam_issues, threads=4)
+
+    molecule_iterator_exec = chain(MoleculeIterator(
+        alignments=input_bam,
+        moleculeClass=CHICMolecule,
+        fragmentClass=CHICFragment,
+        every_fragment_as_molecule=True,
+        perform_qflag=False,
+        max_buffer_size=1000000,
+        yield_overflow=False))
+
+    try:
+        for i, molecule in enumerate(molecule_iterator_exec):
+
+            # Stop when enough molecules are processed
+            if head is not None and (i - 1) >= head:
+                break
+
+
+    except Exception as e:
+        print('FAIL, The file is not complete')
+        raise e
+
+    yield molecule
