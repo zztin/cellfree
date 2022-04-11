@@ -1,0 +1,11 @@
+{
+    "reference_file"  :  "/hpc/hub_oudenaarden/Marloes/bin/masked_genome/primary_assembly_97_129B6Masked_ERCC92.fa",
+    "blacklist" : "/hpc/hub_oudenaarden/bdebarbanson/ref/500_plus_coverage_spikes_blacklist_CHiC_mm10.bed",
+    "counting_min_mq" : 50,
+    "counting_bin_sizes": [50_000],
+    "mapper":"bwa",
+    "plot_bin_sizes" : [500_000, 1000_000],
+    "_comment":"The adapter type should be scCHIC384C8U3l when using direct ligation, or scCHIC384C8U3 when using random priming",
+    "adapter_type" : "SEE ABOVE FOR OPTIONS"
+
+}
