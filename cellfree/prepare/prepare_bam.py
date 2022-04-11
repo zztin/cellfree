@@ -109,7 +109,7 @@ def read_prepared_bam_to_molecules(input_prepared_bam,
                                    ignore_bam_issues=False,
                                    ):
     input_bam = pysam.AlignmentFile(input_prepared_bam, "rb", ignore_truncation=ignore_bam_issues, threads=4)
-
+    molecules = []
     molecule_iterator_exec = chain(MoleculeIterator(
         alignments=input_bam,
         moleculeClass=CHICMolecule,
@@ -125,10 +125,10 @@ def read_prepared_bam_to_molecules(input_prepared_bam,
             # Stop when enough molecules are processed
             if head is not None and (i - 1) >= head:
                 break
-
-
+            molecules.append(molecule)
     except Exception as e:
         print('FAIL, The file is not complete')
         raise e
 
-    yield molecule
+
+    return molecules

@@ -11,10 +11,8 @@ def run(prepared_bam):
     forward_strand_length = []
     reverse_strand_length = []
     unmapped_length = []
-    while True:
-        molecule = next(read_prepared_bam_to_molecules(prepared_bam))
-        # if not molecule.is_mapped:
-        #     unmapped_length.append(len(molecule.sequence))
+    molecules = read_prepared_bam_to_molecules(prepared_bam)
+    for molecule in molecules:
         if not molecule.strand:
             forward_strand_length.append(abs(molecule.spanEnd - molecule.spanStart))
         else:
