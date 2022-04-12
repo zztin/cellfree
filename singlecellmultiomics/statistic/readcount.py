@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import collections
+
+import matplotlib
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import collections
-import matplotlib.pyplot as plt
-from .statistic import Statistic
+
 import singlecellmultiomics.pyutils as pyutils
-import matplotlib
+
+from .statistic import Statistic
+
 matplotlib.rcParams['figure.dpi'] = 160
 matplotlib.use('Agg')
 

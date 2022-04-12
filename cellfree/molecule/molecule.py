@@ -1,7 +1,6 @@
-import pysam
 from dataclasses import dataclass
 
-
+import pysam
 
 ###############
 # A molecule can contain multiple reads mapping at the same location. (PCR/ amplification Deduplication)
@@ -14,6 +13,7 @@ from dataclasses import dataclass
 # molecule methods calls SV while building molecule
 
 # Molecule contains read1 and read2. Start and end coordinate of the "fragment"
+
 
 @dataclass
 class Molecule:
@@ -61,7 +61,6 @@ class DnaMolecule(Molecule):
 
     def is_circular(self):
         raise NotImplementedError
-
 
 
 class DnaBisulfideMolecule(DnaMolecule):

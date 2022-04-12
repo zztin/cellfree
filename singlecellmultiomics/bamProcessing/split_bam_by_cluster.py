@@ -15,10 +15,14 @@ LAST CHANGE: see git log
 LICENSE:     MIT License (see: http://opensource.org/licenses/MIT)
 '''
 
-import sys, argparse, datetime
-import pysam
+import argparse
 import csv
+import datetime
 import os
+import sys
+
+import pysam
+
 
 def reformat_header(header, add_prefix="chr"):
     new_header = header.to_dict()
@@ -62,7 +66,7 @@ def main():
                         help='Annotations of merged clusters. Expect first row are colum names (skipped), first column are cell names (should match SM tag in bam) and second column is cluster name, used for bam file outputs')
     parser.add_argument('-outdir', metavar='OUTDIR', required=True,
                         help='Output directory')
-    parser.add_argument('-tagid', metavar='TAG NAME', required=False, default="SM", 
+    parser.add_argument('-tagid', metavar='TAG NAME', required=False, default="SM",
                         help='Tag name to match first column in annot file (default is SM)')
     parser.add_argument('--annot_no_colnames', action='store_true', help='Set if annot has no column name')
     parser.add_argument('-mapq', metavar="MAPQ value", required=True, default=40, type=int)
@@ -101,7 +105,7 @@ def main():
     writebamdic = {}  # bam write objs
     sorteddic={}  # output files for sorted bam files
     unsorteddic={}  # tmp files unsorted, will be deleted afterwards
-    
+
 
     # # get sampnames_all by reading the bam file
     # sampnames_all = scan_bam_get_sampnames(args.infile, tag = samp_tag_id)  # sampnames_all are sample names
@@ -136,7 +140,7 @@ def main():
     #     assert samp in sampnames_all
     # print("Checking samps are found in bam... DONE")
 
-    # check that no output bam files will clash with existing bams, exit if no overwrite ooption 
+    # check that no output bam files will clash with existing bams, exit if no overwrite ooption
     if not args.overwrite:
         for clstr in clstrs:
             checktmppath = os.path.join(args.outdir, '.'.join([bname, clstr, "unsorted", "bam"]))
@@ -167,7 +171,7 @@ def main():
                 continue
             readsamp = readTag(read, samp_tag_id)
             if readsamp in samp2clstr_dic:
-                # write to outpuet 
+                # write to outpuet
                 clstr = samp2clstr_dic[readsamp]
                 writebamdic[clstr].write(read)
                 assign_count += 1

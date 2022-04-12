@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import singlecellmultiomics
-from singlecellmultiomics.molecule import MoleculeIterator, NlaIIIMolecule
-from singlecellmultiomics.fragment import NlaIIIFragment
-import pysam
-import collections
-import pysamiterators
-import pandas as pd
-import seaborn as sns
-import numpy as np
-import re
-import sklearn.ensemble
 import argparse
+import collections
+import re
+
+import numpy as np
+import pandas as pd
+import pysam
+import pysamiterators
+import seaborn as sns
+import sklearn.ensemble
+
+import singlecellmultiomics
+from singlecellmultiomics.fragment import NlaIIIFragment
+from singlecellmultiomics.molecule import MoleculeIterator, NlaIIIMolecule
 
 
 def bin_to_sort_value(chrom):

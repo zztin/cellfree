@@ -1,8 +1,9 @@
 #!/usr/bin/env python
-from more_itertools import chunked
 import argparse
 import gzip
 import re
+
+from more_itertools import chunked
 
 if __name__=='__main__':
     argparser = argparse.ArgumentParser(

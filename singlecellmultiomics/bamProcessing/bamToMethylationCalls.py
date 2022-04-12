@@ -2,19 +2,26 @@
 # -*- coding: utf-8 -*-
 
 import matplotlib
+
 matplotlib.rcParams['figure.dpi'] = 160
 matplotlib.use('Agg')
+import argparse
+import multiprocessing
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-import multiprocessing
-from singlecellmultiomics.bamProcessing.bamBinCounts import generate_commands, count_methylation_binned
-import argparse
 from colorama import Fore, Style
-from singlecellmultiomics.utils.export import dataframe_to_wig
+
+from singlecellmultiomics.bamProcessing.bamBinCounts import (
+    count_methylation_binned,
+    generate_commands,
+)
+from singlecellmultiomics.bamProcessing.bamFunctions import (
+    get_reference_from_pysam_alignmentFile,
+)
 from singlecellmultiomics.methylation import MethylationCountMatrix
-from singlecellmultiomics.bamProcessing.bamFunctions import get_reference_from_pysam_alignmentFile
-from colorama import Fore,Style
+from singlecellmultiomics.utils.export import dataframe_to_wig
 
 
 def prefilter(counts, cell_names, min_measurements, min_variance):

@@ -1,28 +1,37 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import argparse
-import pysam
-import numpy as np
+import gzip
+import multiprocessing
 import os
 import pickle
-import gzip
-import pandas as pd
-import multiprocessing
-from singlecellmultiomics.bamProcessing import get_contig_sizes, get_contig_size, get_contigs
-from statsmodels.nonparametric.smoothers_lowess import lowess
+from collections import Counter, defaultdict
 from datetime import datetime
-from itertools import chain
-from more_itertools import windowed
-from typing import Generator
-from singlecellmultiomics.methylation import MethylationCountMatrix
-from pysamiterators import CachedFasta
-from pysam import FastaFile
-from singlecellmultiomics.utils import reverse_complement, is_main_chromosome, pool_wrapper
-from collections import defaultdict, Counter
-from itertools import product
-from singlecellmultiomics.bamProcessing.bamFunctions import mate_iter
+from itertools import chain, product
 from multiprocessing import Pool
+from typing import Generator
+
+import numpy as np
+import pandas as pd
+import pysam
+from more_itertools import windowed
+from pysam import FastaFile
+from pysamiterators import CachedFasta
+from statsmodels.nonparametric.smoothers_lowess import lowess
+
+from singlecellmultiomics.bamProcessing import (
+    get_contig_size,
+    get_contig_sizes,
+    get_contigs,
+)
+from singlecellmultiomics.bamProcessing.bamFunctions import mate_iter
+from singlecellmultiomics.methylation import MethylationCountMatrix
 from singlecellmultiomics.pyutils import sorted_slice
+from singlecellmultiomics.utils import (
+    is_main_chromosome,
+    pool_wrapper,
+    reverse_complement,
+)
 
 
 def _generate_count_dict(args):
@@ -538,8 +547,9 @@ def obtain_counts(commands, reference, live_update=True, show_n_cells=4, update_
         count_function = count_fragments_binned
 
     if live_update:
-        from singlecellmultiomics.utils.plotting import GenomicPlot
         import matplotlib.pyplot as plt
+
+        from singlecellmultiomics.utils.plotting import GenomicPlot
         cell_plots = {}
         for cell_index in range(show_n_cells):
             gplot = GenomicPlot(reference)

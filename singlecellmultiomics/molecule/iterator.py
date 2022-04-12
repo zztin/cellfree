@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from singlecellmultiomics.molecule import Molecule
-from singlecellmultiomics.fragment import Fragment
-from singlecellmultiomics.utils.prefetch import initialise_dict, initialise
-from singlecellmultiomics.universalBamTagger import QueryNameFlagger
-import pysamiterators.iterators
 import collections
+
 import pysam
+import pysamiterators.iterators
+
+from singlecellmultiomics.fragment import Fragment
+from singlecellmultiomics.molecule import Molecule
+from singlecellmultiomics.universalBamTagger import QueryNameFlagger
+from singlecellmultiomics.utils.prefetch import initialise, initialise_dict
 
 
 class ReadIterator(pysamiterators.iterators.MatePairIterator):

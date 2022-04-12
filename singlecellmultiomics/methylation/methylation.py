@@ -1,17 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import pysam
-import pandas as pd
-import numpy as np
-from multiprocessing import Pool, Manager
-from collections import defaultdict
-from singlecellmultiomics.bamProcessing import get_reference_path_from_bam
-from singlecellmultiomics.molecule import MoleculeIterator,TAPS
 import gzip
-from singlecellmultiomics.utils import invert_strand_f, is_autosome
 import os
+from collections import defaultdict
+from multiprocessing import Manager, Pool
+
 import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 import pyBigWig
+import pysam
+
+from singlecellmultiomics.bamProcessing import get_reference_path_from_bam
+from singlecellmultiomics.molecule import TAPS, MoleculeIterator
+from singlecellmultiomics.utils import invert_strand_f, is_autosome
+
 
 def get_methylation_calls_from_tabfile(path: str):
     """

@@ -1,1 +1,1 @@
-from .fastaHandle import CachedFastaNoHandle, CachedFasta
+from .fastaHandle import CachedFasta, CachedFastaNoHandle

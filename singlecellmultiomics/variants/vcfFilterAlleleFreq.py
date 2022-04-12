@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import argparse
-import pysam
 
+import pysam
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(

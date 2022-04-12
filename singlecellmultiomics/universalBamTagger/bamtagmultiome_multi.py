@@ -1,27 +1,32 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from singlecellmultiomics.bamProcessing.bamBinCounts import blacklisted_binning_contigs
-from singlecellmultiomics.bamProcessing import sorted_bam_file, merge_bams
-import pysam
+import argparse
 import os
-from shutil import move
+import shutil
+import traceback
+import uuid
+from datetime import datetime
 from multiprocessing import Pool
+from shutil import move
+
+import colorama
+import pysam
+from more_itertools import chunked
+
+import singlecellmultiomics
+from singlecellmultiomics.bamProcessing import merge_bams, sorted_bam_file
+from singlecellmultiomics.bamProcessing.bamBinCounts import blacklisted_binning_contigs
+from singlecellmultiomics.bamProcessing.bamFunctions import (
+    MapabilityReader,
+    get_reference_from_pysam_alignmentFile,
+    sorted_bam_file,
+    verify_and_fix_bam,
+    write_program_tag,
+)
 from singlecellmultiomics.fragment import CHICFragment
 from singlecellmultiomics.molecule import CHICMolecule, MoleculeIterator
-from more_itertools import chunked
-import shutil
-import singlecellmultiomics
-from singlecellmultiomics.bamProcessing.bamFunctions import sorted_bam_file, get_reference_from_pysam_alignmentFile, write_program_tag, MapabilityReader, verify_and_fix_bam
-import argparse
-import uuid
-import colorama
-from datetime import datetime
-import traceback
-import colorama
-from datetime import datetime
-
-from singlecellmultiomics.utils import  bp_chunked
+from singlecellmultiomics.utils import bp_chunked
 
 session_id = uuid.uuid4()
 

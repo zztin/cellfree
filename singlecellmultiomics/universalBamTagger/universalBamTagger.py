@@ -1,35 +1,38 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import re
-import pysam
-import time
-import sys
-import multiprocessing
-import subprocess
-import os
-from singlecellmultiomics.utils.sequtils import hamming_distance, phred_to_prob
-from singlecellmultiomics.universalBamTagger.taps import TAPSFlagger
-from singlecellmultiomics.universalBamTagger.tag import TagFlagger
-from singlecellmultiomics.universalBamTagger.scar import ScarFlagger
-from singlecellmultiomics.universalBamTagger.mspjI import MSPJIFlagger
-from singlecellmultiomics.universalBamTagger.scchic import ChicSeqFlagger
-from singlecellmultiomics.universalBamTagger.nlaIII import NlaIIIFlagger
-from singlecellmultiomics.universalBamTagger.digest import DigestFlagger
-from singlecellmultiomics.universalBamTagger.rna import RNA_Flagger
-import warnings
-import numpy as np
-import math
-import singlecellmultiomics.features
-import singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods
-from singlecellmultiomics.tagtools import tagtools
 import argparse
-import pysamiterators.iterators as pysamIterators
-import gzip
-import pickle
-from singlecellmultiomics.alleleTools import alleleTools
-import uuid
 import collections
 import glob
+import gzip
+import math
+import multiprocessing
+import os
+import pickle
+import re
+import subprocess
+import sys
+import time
+import uuid
+import warnings
+
+import numpy as np
+import pysam
+import pysamiterators.iterators as pysamIterators
+
+import singlecellmultiomics.features
+import singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods
+from singlecellmultiomics.alleleTools import alleleTools
+from singlecellmultiomics.tagtools import tagtools
+from singlecellmultiomics.universalBamTagger.digest import DigestFlagger
+from singlecellmultiomics.universalBamTagger.mspjI import MSPJIFlagger
+from singlecellmultiomics.universalBamTagger.nlaIII import NlaIIIFlagger
+from singlecellmultiomics.universalBamTagger.rna import RNA_Flagger
+from singlecellmultiomics.universalBamTagger.scar import ScarFlagger
+from singlecellmultiomics.universalBamTagger.scchic import ChicSeqFlagger
+from singlecellmultiomics.universalBamTagger.tag import TagFlagger
+from singlecellmultiomics.universalBamTagger.taps import TAPSFlagger
+from singlecellmultiomics.utils.sequtils import hamming_distance, phred_to_prob
+
 c = 1_000  # !!! PLEASE USE PYTHON 3.6 OR HIGHER !!!
 complement = str.maketrans('ATGC', 'TACG')
 

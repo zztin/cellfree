@@ -1,21 +1,28 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import argparse
-import matplotlib.pyplot as plt
-import seaborn as sns
-import matplotlib as mpl
-import pandas as pd
-from collections import Counter
-from singlecellmultiomics.utils.sequtils import reverse_complement
-from singlecellmultiomics.bamProcessing.bamAnalyzeCutDistances import get_sc_cut_dictionary
-from singlecellmultiomics.bamProcessing import get_reference_path_from_bam, get_contigs_with_reads
-from singlecellmultiomics.utils import is_main_chromosome
 import os
-from singlecellmultiomics.features import FeatureContainer
+from collections import Counter
 from itertools import product
-import numpy as np
-import pysam
 from multiprocessing import Pool
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import pysam
+import seaborn as sns
+
+from singlecellmultiomics.bamProcessing import (
+    get_contigs_with_reads,
+    get_reference_path_from_bam,
+)
+from singlecellmultiomics.bamProcessing.bamAnalyzeCutDistances import (
+    get_sc_cut_dictionary,
+)
+from singlecellmultiomics.features import FeatureContainer
+from singlecellmultiomics.utils import is_main_chromosome
+from singlecellmultiomics.utils.sequtils import reverse_complement
 
 mpl.rcParams['figure.dpi'] = 300
 

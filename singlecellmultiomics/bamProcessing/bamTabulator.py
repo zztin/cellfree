@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import argparse
+import collections
 import os
 import sys
-import pysam
-import collections
-import argparse
+
 import pandas as pd
+import pysam
+
 import singlecellmultiomics
 import singlecellmultiomics.modularDemultiplexer
+
 TagDefinitions = singlecellmultiomics.modularDemultiplexer.TagDefinitions
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(

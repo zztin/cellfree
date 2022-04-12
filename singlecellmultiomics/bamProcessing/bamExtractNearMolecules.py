@@ -2,21 +2,31 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
-import pysam
 from array import array
-from singlecellmultiomics.bamProcessing.bamAnalyzeCutDistances import get_stranded_pairwise_counts, get_sc_cut_dictionary, strict_read_counts_function
-from singlecellmultiomics.bamProcessing.bamFunctions import get_contigs_with_reads, sorted_bam_file
-from multiprocessing import Pool
-from singlecellmultiomics.utils import is_main_chromosome
 from collections import defaultdict
+from multiprocessing import Pool
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import pysam
+import seaborn as sns
 from pysamiterators import MatePairIterator
-from singlecellmultiomics.molecule import MoleculeIterator, CHICMolecule
+
+from singlecellmultiomics.bamProcessing.bamAnalyzeCutDistances import (
+    get_sc_cut_dictionary,
+    get_stranded_pairwise_counts,
+    strict_read_counts_function,
+)
+from singlecellmultiomics.bamProcessing.bamFunctions import (
+    get_contigs_with_reads,
+    get_reference_path_from_bam,
+    sorted_bam_file,
+)
 from singlecellmultiomics.fragment import CHICFragment
-from singlecellmultiomics.bamProcessing.bamFunctions import get_reference_path_from_bam
+from singlecellmultiomics.molecule import CHICMolecule, MoleculeIterator
+from singlecellmultiomics.utils import is_main_chromosome
+
 
 def get_nearby_reads():
 

@@ -2,25 +2,27 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-from singlecellmultiomics.utils import createRowColorDataFrame
-from scipy.cluster.hierarchy import linkage, cut_tree
-from scipy.spatial.distance import squareform
-import scipy.stats
-import pandas as pd
-import numpy as np
 import glob
-import seaborn as sns
-from sklearn.manifold import TSNE
-import matplotlib.pyplot as plt
 import json
-from singlecellmultiomics.utils.plotting import plot_plate, plot_plate_layout
-from collections import defaultdict
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import KFold
 import os
+from collections import defaultdict
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import scipy.stats
+import seaborn as sns
+from scipy.cluster.hierarchy import cut_tree, linkage
+from scipy.spatial.distance import squareform
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.manifold import TSNE
+from sklearn.model_selection import KFold
+
 from singlecellmultiomics.libraryProcessing import SampleSheet
+from singlecellmultiomics.utils import createRowColorDataFrame
+from singlecellmultiomics.utils.plotting import plot_plate, plot_plate_layout
+
 
 def read_plate_statistics(path):
 

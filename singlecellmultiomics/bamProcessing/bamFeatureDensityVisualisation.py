@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import os
-import sys
-import pysam
-import collections
 import argparse
+import collections
 import gzip
+import os
 import pickle
+import sys
+
 import matplotlib
-
 import numpy as np
-
 import pandas as pd
+import pysam
+
 import singlecellmultiomics.features
 
 

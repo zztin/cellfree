@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import numpy as np
+import collections
+import functools
 import gzip
 import itertools
 import re
-import functools
-import pysam
-from singlecellmultiomics.utils import Prefetcher
 from copy import copy
-import collections
+
+import numpy as np
 import pandas as pd
+import pysam
+
+from singlecellmultiomics.utils import Prefetcher
+
 
 def get_gene_id_to_gene_name_conversion_table(annotation_path_exons,
                                               featureTypes=['gene_name']):
@@ -1018,9 +1021,7 @@ if __name__ == "__main__":
     """The following are all test functions for the annotation class"""
 
     from colorama import Fore  # ,Back, Style
-    from colorama import Back
-    from colorama import Style
-    from colorama import init
+    from colorama import Back, Style, init
     init(autoreset=True)
 
     def formatColor(string):
@@ -1263,6 +1264,7 @@ if __name__ == "__main__":
     """
     #######################################
     import random
+
     import progressbar
     print('Creating random features')
 

@@ -1,5 +1,6 @@
 import json
 
+
 def mark_autodetect(libname):
     lib = libname.lower()
     if 'k9me3' in lib:

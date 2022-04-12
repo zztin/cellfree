@@ -1,10 +1,12 @@
-import subprocess
 import inspect
 import os
+import subprocess
+
 from click.testing import CliRunner
-from cellfree.cmd.cellfree import main
-import cellfree.cmd.prepare as prepare
+
 import cellfree.cmd.end_motif as end_motif
+import cellfree.cmd.prepare as prepare
+from cellfree.cmd.cellfree import main
 
 
 def test_bamtagmultiome_benchmark():
@@ -19,18 +21,22 @@ Params: {'query_name_flagger': None, 'molecule_class': <class 'singlecellmultiom
         if os.path.exists(item):
             os.remove(item)
     import tests
-    mini_bam = os.path.join(os.path.dirname(inspect.getfile(tests)), "data", "mini_nla_test.bam")
+
+    mini_bam = os.path.join(
+        os.path.dirname(inspect.getfile(tests)), "data", "mini_nla_test.bam"
+    )
     # TODO: I was aware mini_nla_test.bam.bai differs from the upstream
     runner = CliRunner()
     result = runner.invoke(main, ["tag", "--bamfile", mini_bam])
     assert result.output == expected
 
+
 def test_bam():
     runner = CliRunner()
-    result = runner.invoke(prepare.prepare, ['--help'])
+    result = runner.invoke(prepare.prepare, ["--help"])
     assert result.output == "prepare subcommand is called, yay!n"
-    
+
+
 def test_end_motif():
     result = runner.invoke(end_motif.end_motif)
     assert result.output == "end motif."
-    

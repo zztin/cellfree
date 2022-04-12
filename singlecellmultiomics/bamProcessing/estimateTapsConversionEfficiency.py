@@ -1,23 +1,31 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import matplotlib.pyplot as plt
-from singlecellmultiomics.molecule import MoleculeIterator, CHICNLAMolecule, TAPSNlaIIIMolecule,TAPSCHICMolecule,TAPS
-from singlecellmultiomics.fragment import CHICFragment, NlaIIIFragment
-import pysam
-from pysamiterators import CachedFasta
-from singlecellmultiomics.variants.substitutions import conversion_dict_stranded
-from collections import defaultdict
-from singlecellmultiomics.utils import reverse_complement, complement
+import argparse
+from collections import Counter, defaultdict
 from glob import glob
 from multiprocessing import Pool
-from singlecellmultiomics.bamProcessing.bamFunctions import get_reference_path_from_bam
-from collections import Counter
-import pandas as pd
+
 import matplotlib as mpl
-from singlecellmultiomics.utils.sequtils import phred_to_prob, prob_to_phred
+import matplotlib.pyplot as plt
+import pandas as pd
+import pysam
 import seaborn as sns
-import argparse
+from pysamiterators import CachedFasta
+
+from singlecellmultiomics.bamProcessing.bamFunctions import get_reference_path_from_bam
+from singlecellmultiomics.fragment import CHICFragment, NlaIIIFragment
+from singlecellmultiomics.molecule import (
+    TAPS,
+    CHICNLAMolecule,
+    MoleculeIterator,
+    TAPSCHICMolecule,
+    TAPSNlaIIIMolecule,
+)
+from singlecellmultiomics.utils import complement, reverse_complement
+from singlecellmultiomics.utils.sequtils import phred_to_prob, prob_to_phred
+from singlecellmultiomics.variants.substitutions import conversion_dict_stranded
+
 
 def update_mutation_dict(molecule,reference, conversions_per_library, context_obs):
 

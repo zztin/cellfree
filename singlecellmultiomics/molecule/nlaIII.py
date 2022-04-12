@@ -1,5 +1,7 @@
+from singlecellmultiomics.molecule.featureannotatedmolecule import (
+    FeatureAnnotatedMolecule,
+)
 from singlecellmultiomics.molecule.molecule import Molecule
-from singlecellmultiomics.molecule.featureannotatedmolecule import FeatureAnnotatedMolecule
 
 
 class NlaIIIMolecule(Molecule):

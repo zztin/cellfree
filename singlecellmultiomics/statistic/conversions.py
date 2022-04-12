@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import seaborn as sns
-import matplotlib.pyplot as plt
-from .statistic import StatisticHistogram
-import singlecellmultiomics.pyutils as pyutils
 import collections
-import pandas as pd
+
 import matplotlib
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+
+import singlecellmultiomics.pyutils as pyutils
+
+from .statistic import StatisticHistogram
+
 matplotlib.rcParams['figure.dpi'] = 160
 matplotlib.use('Agg')
 

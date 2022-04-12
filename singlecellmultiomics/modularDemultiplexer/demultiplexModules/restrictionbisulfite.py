@@ -1,11 +1,15 @@
 import sys
+
+from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import (
+    IlluminaBaseDemultiplexer,
+    NonMultiplexable,
+    UmiBarcodeDemuxMethod,
+)
+
 # sys.path.append("/hpc/hub_oudenaarden/group_scripts/")
 # sys.path.append("/hpc/hub_oudenaarden/group_scripts/modularDemultiplexer/")
 
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import UmiBarcodeDemuxMethod, IlluminaBaseDemultiplexer
 
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import IlluminaBaseDemultiplexer
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import NonMultiplexable
 
 # TO do, currently not implemented:
 # enzyme ID correction based on Hamming Distance

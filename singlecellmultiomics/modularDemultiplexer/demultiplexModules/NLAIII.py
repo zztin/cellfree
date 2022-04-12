@@ -1,4 +1,7 @@
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import UmiBarcodeDemuxMethod, NonMultiplexable
+from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import (
+    NonMultiplexable,
+    UmiBarcodeDemuxMethod,
+)
 
 # NLAIII, 96 well format with 3bp UMI
 

@@ -1,15 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import singlecellmultiomics
-from singlecellmultiomics.molecule import MoleculeIterator, NlaIIIMolecule
-from singlecellmultiomics.fragment import NlaIIIFragment
-import pysam
 import collections
-import pysamiterators
-import pandas as pd
-import numpy as np
 import re
+
 import more_itertools
+import numpy as np
+import pandas as pd
+import pysam
+import pysamiterators
+
+import singlecellmultiomics
+from singlecellmultiomics.fragment import NlaIIIFragment
+from singlecellmultiomics.molecule import MoleculeIterator, NlaIIIMolecule
 
 
 def get_random_primer_histogram(

@@ -1,18 +1,19 @@
-from Bio import SeqIO
-from Bio.Seq import Seq
-import os
-import uuid
-from Bio import pairwise2
 import math
+import os
 import subprocess
-from colorama import Fore #,Back, Style
-from colorama import Back
-from colorama import Style
-from colorama import init
+import uuid
+
+from Bio import SeqIO, pairwise2
+from Bio.Seq import Seq
+from colorama import Fore  # ,Back, Style
+from colorama import Back, Style, init
+
 init(autoreset=True)
-import numpy as np
 import re
-from itertools import takewhile,repeat
+from itertools import repeat, takewhile
+
+import numpy as np
+
 #import localInstall
 
 if not os.name=='nt':

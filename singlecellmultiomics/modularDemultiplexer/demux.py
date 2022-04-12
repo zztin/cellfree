@@ -1,18 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import pkg_resources
-import logging
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import NonMultiplexable
-from colorama import init
-from singlecellmultiomics.modularDemultiplexer.demultiplexingStrategyLoader import DemultiplexingStrategyLoader
-import singlecellmultiomics.libraryDetection.sequencingLibraryListing as sequencingLibraryListing
-import singlecellmultiomics.barcodeFileParser.barcodeFileParser as barcodeFileParser
-from singlecellmultiomics.fastqProcessing.fastqHandle import FastqHandle
 import argparse
-from colorama import Style
-from colorama import Fore
-import sys
+import logging
 import os
+import sys
+
+import pkg_resources
+from colorama import Fore, Style, init
+
+import singlecellmultiomics.barcodeFileParser.barcodeFileParser as barcodeFileParser
+import singlecellmultiomics.libraryDetection.sequencingLibraryListing as sequencingLibraryListing
+from singlecellmultiomics.fastqProcessing.fastqHandle import FastqHandle
+from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import (
+    NonMultiplexable,
+)
+from singlecellmultiomics.modularDemultiplexer.demultiplexingStrategyLoader import (
+    DemultiplexingStrategyLoader,
+)
 from singlecellmultiomics.utils.submission import submit_job
 
 f"!!! PLEASE USE PYTHON 3.6 OR HIGHER !!!"

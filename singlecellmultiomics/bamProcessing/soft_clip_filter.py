@@ -5,15 +5,18 @@ Created on Fri Oct 23 16:04:46 2020
 
 @author: rvanesch
 """
+import argparse
+
 #%%
 import os
+
 import pysam
-import argparse
+
 #import sys
 
 #%%
 if __name__ == '__main__':
-    
+
     argparser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
         description="""Filter bam file for containing less than an indicated ratio
@@ -56,7 +59,7 @@ if __name__ == '__main__':
     outputFile = pysam.AlignmentFile(args.o, "wb", header=header)
     if args.l:
         log = open('sc_filter_log.txt', 'w')
-    
+
     max_sc = args.sc
     sc_pass_total = 0
     sc_fail_total = 0
@@ -64,10 +67,10 @@ if __name__ == '__main__':
     for r in bamFile:
         sc_count = 0
         m_count= 0
-        #r.cigar returns a list of tuples describing the cigar, with tuple[0] indicating the type and 
+        #r.cigar returns a list of tuples describing the cigar, with tuple[0] indicating the type and
         #tuple[1] containing the length.
-        #matches are indicated by tuple[0] == 0, softclips by tuple[0] == 4 
-        try: 
+        #matches are indicated by tuple[0] == 0, softclips by tuple[0] == 4
+        try:
             for tup in r.cigartuples:
                 if tup[0]==0:
                     m_count += tup[1]
@@ -85,13 +88,13 @@ if __name__ == '__main__':
                     log.write("no read in read\n")
                     sc_error += 1
 
-            
+
         if sc_ratio < max_sc:
             outputFile.write(r)
             sc_pass_total+=1
         else:
             sc_fail_total+=1
-    
+
     if args.l:
         log.write("filtering done \n")
         log.write("bamfile: "+args.bamfile+"\n")
@@ -101,5 +104,5 @@ if __name__ == '__main__':
         log.write("errors: "+str(sc_error)+" reads \n")
         log.write("output file: "+args.o)
         log.close()
-    
+
     outputFile.close()

@@ -1,27 +1,31 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from singlecellmultiomics.molecule import MoleculeIterator, CHICMolecule
-from singlecellmultiomics.fragment import CHICFragment
-from singlecellmultiomics.bamProcessing.bamFunctions import get_reference_path_from_bam, get_contigs
+import argparse
+import asyncio
 from collections import defaultdict
+from glob import glob
+from itertools import product
+from multiprocessing import Pool
+
+import numpy as np
+import pandas as pd
 import pyBigWig
 import pysam
-from singlecellmultiomics.bamProcessing.bamBinCounts import get_binned_counts
-import pandas as pd
-import argparse
-from singlecellmultiomics.bamProcessing import get_contig_sizes
-from singlecellmultiomics.utils import is_autosome, pool_wrapper
-import numpy as np
-from multiprocessing import Pool
 from more_itertools import windowed
-from glob import glob
-import pyBigWig
 from scipy.ndimage import gaussian_filter1d
 from scipy.signal import find_peaks
-import argparse
-from itertools import product
-import asyncio
+
+from singlecellmultiomics.bamProcessing import get_contig_sizes
+from singlecellmultiomics.bamProcessing.bamBinCounts import get_binned_counts
+from singlecellmultiomics.bamProcessing.bamFunctions import (
+    get_contigs,
+    get_reference_path_from_bam,
+)
+from singlecellmultiomics.fragment import CHICFragment
+from singlecellmultiomics.molecule import CHICMolecule, MoleculeIterator
+from singlecellmultiomics.utils import is_autosome, pool_wrapper
+
 
 def get_aligned_chic_len(molecule):
 

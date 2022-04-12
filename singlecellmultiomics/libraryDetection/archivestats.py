@@ -2,15 +2,18 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-
-import pkg_resources
-import singlecellmultiomics.barcodeFileParser.barcodeFileParser as barcodeFileParser
-from singlecellmultiomics.modularDemultiplexer.demultiplexingStrategyLoader import DemultiplexingStrategyLoader
-import singlecellmultiomics.libraryDetection.sequencingLibraryListing as sequencingLibraryListing
-import glob
 import fnmatch
+import glob
 import os
 from types import SimpleNamespace
+
+import pkg_resources
+
+import singlecellmultiomics.barcodeFileParser.barcodeFileParser as barcodeFileParser
+import singlecellmultiomics.libraryDetection.sequencingLibraryListing as sequencingLibraryListing
+from singlecellmultiomics.modularDemultiplexer.demultiplexingStrategyLoader import (
+    DemultiplexingStrategyLoader,
+)
 
 if __name__ == '__main__':
     barcode_dir = pkg_resources.resource_filename(

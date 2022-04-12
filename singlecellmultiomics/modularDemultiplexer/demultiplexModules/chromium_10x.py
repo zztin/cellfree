@@ -1,4 +1,7 @@
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import UmiBarcodeDemuxMethod
+from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import (
+    UmiBarcodeDemuxMethod,
+)
+
 
 class chrom10x_c16_u12(UmiBarcodeDemuxMethod):
     def __init__(self, barcodeFileParser, **kwargs):

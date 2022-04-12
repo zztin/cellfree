@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import pysamiterators.iterators as pysamiterators
-import itertools
 import html
+import itertools
+
+import pysamiterators.iterators as pysamiterators
 
 
 def cstr(s, color='black', weight=300):

@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import pandas as pd
-import os
 import argparse
-import pysam
 import json
-from multiprocessing import Pool
+import os
 from collections import Counter, defaultdict
+from multiprocessing import Pool
+
 import numpy as np
+import pandas as pd
+import pysam
+
 
 def count_reads(args):
     bam, contig = args

@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import re
-import singlecellmultiomics.fastqProcessing.fastqIterator as fastqIterator
 import string
-from singlecellmultiomics.utils.sequtils import hamming_distance
+
+import singlecellmultiomics.fastqProcessing.fastqIterator as fastqIterator
 from singlecellmultiomics.tags import *
+from singlecellmultiomics.utils.sequtils import hamming_distance
 
 complement = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
 

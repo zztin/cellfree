@@ -1,17 +1,18 @@
-import os
-import pysam
-import time
 import contextlib
-from shutil import which, move
-from singlecellmultiomics.utils import BlockZip, Prefetcher, get_file_type
-import uuid
 import os
-from collections import defaultdict, Counter
-from singlecellmultiomics.bamProcessing.pileup import pileup_truncated
+import time
+import uuid
+from collections import Counter, defaultdict
+from multiprocessing import Pool
+from shutil import move, which
+from typing import Generator
+
 import numpy as np
 import pandas as pd
-from typing import Generator
-from multiprocessing import Pool
+import pysam
+
+from singlecellmultiomics.bamProcessing.pileup import pileup_truncated
+from singlecellmultiomics.utils import BlockZip, Prefetcher, get_file_type
 
 
 def get_index_path(bam_path: str):

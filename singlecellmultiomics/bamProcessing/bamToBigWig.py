@@ -1,14 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import argparse
+
+import numpy as np
+import pandas as pd
 import pyBigWig
 import pysam
-from singlecellmultiomics.bamProcessing.bamBinCounts import get_binned_counts
-import pandas as pd
-import argparse
+
 from singlecellmultiomics.bamProcessing import get_contig_sizes
-import numpy as np
+from singlecellmultiomics.bamProcessing.bamBinCounts import get_binned_counts
 from singlecellmultiomics.utils.path import get_valid_filename
+
 
 def bam_to_wig(bam_paths, write_path, bin_size, method='sum', verbose=False, n_threads=None, sample_mapping_function=None):
     if verbose:

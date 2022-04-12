@@ -1,17 +1,19 @@
+import collections
+import math
+import string
+from itertools import product
+
 import matplotlib
+import matplotlib.gridspec as gridspec
+import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from singlecellmultiomics.utils import is_main_chromosome, get_contig_list_from_fasta
-import matplotlib.gridspec as gridspec
-import matplotlib.pyplot as plt
 import pysam
 import seaborn as sns
 from matplotlib.patches import Circle
-from itertools import product
-import collections
-import string
-import math
-import matplotlib.patches as mpatches
+
+from singlecellmultiomics.utils import get_contig_list_from_fasta, is_main_chromosome
 
 
 # Define chromsome order:

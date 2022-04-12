@@ -1,25 +1,27 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from singlecellmultiomics.statistic import PlateStatistic
-import singlecellmultiomics.modularDemultiplexer
-import math
-import string
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-import os
-import sys
-import pysam
-import collections
 import argparse
-from singlecellmultiomics.tagtools import tagtools
-import pysamiterators.iterators as pysamIterators
+import collections
 import gzip
+import math
+import os
 import pickle
+import string
 import subprocess
+import sys
 
 import matplotlib
 import matplotlib.lines as mlines
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import pysam
+import pysamiterators.iterators as pysamIterators
+
+import singlecellmultiomics.modularDemultiplexer
+from singlecellmultiomics.statistic import PlateStatistic
+from singlecellmultiomics.tagtools import tagtools
+
 matplotlib.rcParams['figure.dpi'] = 160
 matplotlib.use('Agg')
 TagDefinitions = singlecellmultiomics.modularDemultiplexer.TagDefinitions

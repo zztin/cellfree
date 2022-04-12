@@ -1,21 +1,23 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import pysam
-import singlecellmultiomics.molecule
-import singlecellmultiomics.fragment
-import gzip
-import collections
-import matplotlib.pyplot as plt
-import pandas as pd
 import argparse
-import pysamiterators
-import sys
+import collections
+import gzip
 import os
+import sys
 import uuid
+
+import colorama
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import pysam
+import pysamiterators
+
 import singlecellmultiomics.bamProcessing.bamFunctions as bf
 import singlecellmultiomics.features
-import colorama
-import numpy as np
+import singlecellmultiomics.fragment
+import singlecellmultiomics.molecule
 
 
 class Fraction:

@@ -1,25 +1,30 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import singlecellmultiomics
-from collections import Counter
-from singlecellmultiomics.bamProcessing import sorted_bam_file, has_variant_reads
-from singlecellmultiomics.molecule import NlaIIIMolecule,MoleculeIterator,train_consensus_model,get_consensus_training_data, Molecule
-from singlecellmultiomics.fragment import NlaIIIFragment, Fragment
-from singlecellmultiomics.variants import VariantWrapper
-import pysam
+import argparse
 import collections
+import itertools
+import multiprocessing
+import os
+from collections import Counter
+from glob import glob
+
 import numpy as np
 import pandas as pd
-import itertools
+import pysam
+
+import singlecellmultiomics
 from singlecellmultiomics.alleleTools import AlleleResolver
-import os
-from glob import glob
-import argparse
-from collections import Counter
-import multiprocessing
-
-
+from singlecellmultiomics.bamProcessing import has_variant_reads, sorted_bam_file
+from singlecellmultiomics.fragment import Fragment, NlaIIIFragment
+from singlecellmultiomics.molecule import (
+    Molecule,
+    MoleculeIterator,
+    NlaIIIMolecule,
+    get_consensus_training_data,
+    train_consensus_model,
+)
+from singlecellmultiomics.variants import VariantWrapper
 
 
 def job_gen( induced_variants_path, germline_variants_path,

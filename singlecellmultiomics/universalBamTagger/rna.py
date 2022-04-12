@@ -1,5 +1,6 @@
-import singlecellmultiomics.features
 import collections
+
+import singlecellmultiomics.features
 
 
 class RNA_Flagger():

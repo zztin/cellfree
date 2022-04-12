@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-import pyBigWig
+
 import numpy as np
 import pandas as pd
-
+import pyBigWig
 
 if __name__=='__main__':
 

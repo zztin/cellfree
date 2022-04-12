@@ -1,11 +1,13 @@
 import math
-from pysam import FastaFile, AlignmentFile
-from singlecellmultiomics.utils.prefetch import Prefetcher
-from collections import Counter
-import numpy as np
-from pysamiterators import CachedFasta
-from array import array
 import os
+from array import array
+from collections import Counter
+
+import numpy as np
+from pysam import AlignmentFile, FastaFile
+from pysamiterators import CachedFasta
+
+from singlecellmultiomics.utils.prefetch import Prefetcher
 
 
 class Reference(Prefetcher):

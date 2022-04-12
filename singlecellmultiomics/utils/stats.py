@@ -1,14 +1,17 @@
-import statsmodels.api as sm
-import numpy as np
-from scipy import stats
 from copy import copy
-import pandas as pd
-import statsmodels.formula.api as smf
-from singlecellmultiomics.utils import pool_wrapper
 from multiprocessing import Pool
-from scipy.ndimage import gaussian_filter
-import pyBigWig
 from typing import Callable, Union
+
+import numpy as np
+import pandas as pd
+import pyBigWig
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+from scipy import stats
+from scipy.ndimage import gaussian_filter
+
+from singlecellmultiomics.utils import pool_wrapper
+
 
 def calculate_nested_f_statistic(small_model, big_model):
     # From https://stackoverflow.com/a/60769343/2858160

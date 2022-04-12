@@ -1,10 +1,16 @@
 import itertools
-from singlecellmultiomics.utils.sequtils import hamming_distance, get_consensus_dictionaries, pick_best_base_call
+
 import pysamiterators.iterators
+
 import singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods
-from singlecellmultiomics.utils import style_str
 from singlecellmultiomics.bamProcessing import get_read_group_from_read
 from singlecellmultiomics.features import FeatureAnnotatedObject
+from singlecellmultiomics.utils import style_str
+from singlecellmultiomics.utils.sequtils import (
+    get_consensus_dictionaries,
+    hamming_distance,
+    pick_best_base_call,
+)
 
 complement = str.maketrans('ATCGN', 'TAGCN')
 

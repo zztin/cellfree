@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import argparse
+import collections
 import os
 import sys
-import pysam
-import collections
-import argparse
+
 import pandas as pd
+import pysam
+
 import singlecellmultiomics
-import singlecellmultiomics.molecule
 import singlecellmultiomics.modularDemultiplexer
+import singlecellmultiomics.molecule
+
 TagDefinitions = singlecellmultiomics.modularDemultiplexer.TagDefinitions
 
 if __name__ == '__main__':

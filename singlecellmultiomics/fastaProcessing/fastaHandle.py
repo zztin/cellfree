@@ -1,5 +1,5 @@
-from pysamiterators import CachedFasta
 from pysam import FastaFile
+from pysamiterators import CachedFasta
 
 
 class CachedFastaNoHandle(CachedFasta):

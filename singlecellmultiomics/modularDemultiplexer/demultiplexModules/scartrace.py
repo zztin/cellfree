@@ -1,4 +1,7 @@
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import UmiBarcodeDemuxMethod, NonMultiplexable
+from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import (
+    NonMultiplexable,
+    UmiBarcodeDemuxMethod,
+)
 
 # ScarTrace
 

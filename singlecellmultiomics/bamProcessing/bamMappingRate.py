@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
+import argparse
+import glob
 import os
 import sys
-import glob
-import pysam
-import colorama
 
-import argparse
+import colorama
+import pysam
 
 f'Please source or use an environment with python 3.6 or higher!'
 if __name__ == '__main__':

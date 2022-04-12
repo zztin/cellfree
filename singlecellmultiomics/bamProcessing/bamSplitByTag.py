@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os
-import pysam
 import argparse
-import sys
 import collections
+import os
+import sys
 from multiprocessing import Pool
+
+import pysam
+
 from singlecellmultiomics.utils.path import get_valid_filename
+
 
 def index_bam(path):
     try:

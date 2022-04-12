@@ -1,18 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from multiprocessing import Pool
-import pysam
-import pandas as pd
 import argparse
-from collections import Counter, defaultdict
-import numpy as np
-import seaborn as sns
-import os
 import gzip
 import math
-import matplotlib.pyplot as plt
-import matplotlib as mpl
+import os
 import pickle
+from collections import Counter, defaultdict
+from multiprocessing import Pool
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import pysam
+import seaborn as sns
+
 mpl.rcParams['figure.dpi'] = 300
 
 if __name__=='__main__':

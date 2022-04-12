@@ -1,7 +1,7 @@
 import click
 
 from cellfree.algorithm import bam
-from cellfree.cmd import prepare, end_motif, tsv, all, frag_length
+from cellfree.cmd import all, end_motif, frag_length, prepare, tsv
 
 
 @click.group()
@@ -28,4 +28,3 @@ main.add_command(end_motif.end_motif)
 main.add_command(frag_length.frag_length)
 main.add_command(tsv.tsv)
 main.add_command(all.all)
-

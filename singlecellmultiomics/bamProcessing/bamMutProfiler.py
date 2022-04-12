@@ -2,22 +2,29 @@
 # -*- coding: utf-8 -*-
 
 import matplotlib
+
 matplotlib.rcParams['figure.dpi'] = 160
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import pandas as pd
-from glob import glob
-import seaborn as sns
-import pysam
-import numpy as np
-import multiprocessing
-from datetime import datetime
-from singlecellmultiomics.utils.plotting import GenomicPlot
-from singlecellmultiomics.bamProcessing.bamBinCounts import count_fragments_binned, generate_commands, gc_correct_cn_frame, obtain_counts
-import os
 import argparse
+import multiprocessing
+import os
+from datetime import datetime
+from glob import glob
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import pysam
+import seaborn as sns
 from colorama import Fore, Style
 
+from singlecellmultiomics.bamProcessing.bamBinCounts import (
+    count_fragments_binned,
+    gc_correct_cn_frame,
+    generate_commands,
+    obtain_counts,
+)
+from singlecellmultiomics.utils.plotting import GenomicPlot
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(

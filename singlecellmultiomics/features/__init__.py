@@ -1,1 +1,1 @@
-from .features import FeatureContainer, FeatureAnnotatedObject
+from .features import FeatureAnnotatedObject, FeatureContainer

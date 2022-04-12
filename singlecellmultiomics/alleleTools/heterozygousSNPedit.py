@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-import pysam
-from collections import Counter
 import argparse
+from collections import Counter
+
+import pysam
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(
@@ -26,33 +27,33 @@ with pysam.VariantFile(args.o, mode = 'w', header = origin_vcf.header) as output
 
     for record in origin_vcf: #.fetch('12',114682700, 114683000): #load in only one small region to check
         record.chrom, record.pos
-        
+
         base_obs = Counter()
-        pos = record.pos - 1 
-        
+        pos = record.pos - 1
+
 # calculate number of observations per base on this position, determined by the input .bam file
         for pileupcolumn in origin_bam.pileup(record.chrom, pos, pos + 1):
-            if pileupcolumn.pos != pos: 
+            if pileupcolumn.pos != pos:
                 continue
             for pileupread in pileupcolumn.pileups:
                 if not pileupread.is_del and not pileupread.is_refskip:
                     base_obs[pileupread.alignment.query_sequence[pileupread.query_position]] +=1
-                    
+
 # we need to couple the genotype (0:ref, 1, 2 etc alternative bases) to the base itself (A,C,G,T) to make the genotype compatible with the base counter
-        allele_genotype = {} 
+        allele_genotype = {}
         for number in range(len(record.samples[args.allele]['GT'])):
             allele_genotype[record.samples[args.allele]['GT'][number]] = record.samples[args.allele].alleles[number]
 
-# select which alleles to change: we only want to alter the allele if it is not reference and count is >30%    
+# select which alleles to change: we only want to alter the allele if it is not reference and count is >30%
         new_GT = tuple(GT for GT in record.samples[args.allele]['GT'] if GT != 0 # if GT = 0, it is reference
                        and (sum(base_obs.values()) > 0 # If there are no observations, nothing should be changed
                             and float(base_obs[allele_genotype[GT]])/float(sum(base_obs.values())) > 0.3)) # only change if we have >30% observations
- 
- # if the length is 0, nothing should change        
+
+ # if the length is 0, nothing should change
         if len(new_GT) == 0:
             new_GT = record.samples[args.allele]['GT']
- 
- # if length is 1, the site should be homozygous               
+
+ # if length is 1, the site should be homozygous
         if len(new_GT) == 1:
             new_GT = tuple( (new_GT[0], new_GT[0]))
 
@@ -63,6 +64,6 @@ with pysam.VariantFile(args.o, mode = 'w', header = origin_vcf.header) as output
         if record.alts == None:
             continue
 
-# write altered SNPs to record and to output file      
+# write altered SNPs to record and to output file
         record.samples[args.allele]['GT'] = new_GT
-        output_vcf.write(record)        
+        output_vcf.write(record)

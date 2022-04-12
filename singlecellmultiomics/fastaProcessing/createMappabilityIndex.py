@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-import singlecellmultiomics.utils
-import pysam
-import collections
-import numpy as np
-import re
-import more_itertools
-import gzip
 import argparse
-import uuid
+import collections
+import gzip
 import os
-from singlecellmultiomics.utils import BlockZip
+import re
+import uuid
 
+import more_itertools
+import numpy as np
+import pysam
+
+import singlecellmultiomics.utils
+from singlecellmultiomics.utils import BlockZip
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(

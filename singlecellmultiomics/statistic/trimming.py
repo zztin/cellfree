@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from .statistic import StatisticHistogram
 import singlecellmultiomics.pyutils as pyutils
+
+from .statistic import StatisticHistogram
 
 
 class TrimmingStats(StatisticHistogram):

@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 
 # -*- coding: utf-8 -*-
-import os
-import pysam
 import argparse
+import os
 import sys
-from singlecellmultiomics.bamProcessing.bamToCountTable import read_has_alternative_hits_to_non_alts
+
+import pysam
+
+from singlecellmultiomics.bamProcessing.bamToCountTable import (
+    read_has_alternative_hits_to_non_alts,
+)
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(

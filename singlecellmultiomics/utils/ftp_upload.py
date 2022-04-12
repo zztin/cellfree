@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-from ftplib import FTP
 import os
+from ftplib import FTP
+
 
 def upload_files(target_hostname,user,password,upload_dir,upload_folder_name, upload_file_names):
 

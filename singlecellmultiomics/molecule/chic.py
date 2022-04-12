@@ -1,6 +1,10 @@
-from singlecellmultiomics.molecule.molecule import Molecule
-from singlecellmultiomics.molecule.featureannotatedmolecule import FeatureAnnotatedMolecule
 import collections
+
+from singlecellmultiomics.molecule.featureannotatedmolecule import (
+    FeatureAnnotatedMolecule,
+)
+from singlecellmultiomics.molecule.molecule import Molecule
+
 
 class CHICMolecule(Molecule):
     """CHIC Molecule class
