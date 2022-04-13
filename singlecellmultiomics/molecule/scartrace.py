@@ -1,6 +1,8 @@
+import numpy as np
+
 from singlecellmultiomics.molecule.molecule import Molecule
 from singlecellmultiomics.utils.sequtils import phred_to_prob
-import numpy as np
+
 
 class ScarTraceMolecule(Molecule):
     """ScarTrace Molecule class

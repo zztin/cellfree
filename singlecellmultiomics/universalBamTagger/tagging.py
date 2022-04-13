@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import gzip
+import os
+from copy import copy
 from datetime import datetime
 from os import remove
-from pysam import AlignmentFile
-from singlecellmultiomics.bamProcessing import sorted_bam_file
-from uuid import uuid4
-from copy import copy
 from typing import Generator
-import os
-import gzip
+from uuid import uuid4
+
+from pysam import AlignmentFile
+
+from singlecellmultiomics.bamProcessing import sorted_bam_file
+
 
 def prefetch(contig, start, end, fetch_start,fetch_end,molecule_iterator_args):
     """ Prefetch selected region

@@ -1,14 +1,18 @@
-import matplotlib.patheffects as path_effects
 import math
 import string
+from collections import Counter, defaultdict
+
+import matplotlib
+import matplotlib.patheffects as path_effects
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from .statistic import StatisticHistogram
+
 import singlecellmultiomics.pyutils as pyutils
-from collections import defaultdict, Counter
 from singlecellmultiomics.utils.plotting import plot_plate
-import matplotlib
+
+from .statistic import StatisticHistogram
+
 matplotlib.rcParams['figure.dpi'] = 160
 matplotlib.use('Agg')
 

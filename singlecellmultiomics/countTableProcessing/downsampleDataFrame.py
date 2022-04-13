@@ -1,10 +1,11 @@
-import pandas as pd
-import numpy as np
 import glob
 import math
+import multiprocessing
 import re
 import sys
-import multiprocessing
+
+import numpy as np
+import pandas as pd
 
 
 def downsampleRow(args):

@@ -1,14 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import singlecellmultiomics.molecule
-import singlecellmultiomics.fragment
-import pysamiterators
-import pysam
 import argparse
-import singlecellmultiomics.bamProcessing.bamFunctions as bf
-from singlecellmultiomics.features import FeatureContainer
 import os
+
+import pysam
+import pysamiterators
+
+import singlecellmultiomics.bamProcessing.bamFunctions as bf
+import singlecellmultiomics.fragment
+import singlecellmultiomics.molecule
 from singlecellmultiomics.alleleTools import AlleleResolver
+from singlecellmultiomics.features import FeatureContainer
 
 
 def finish_bam(output, args, temp_out):

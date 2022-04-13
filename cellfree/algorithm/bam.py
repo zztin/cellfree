@@ -1,5 +1,7 @@
-from singlecellmultiomics.universalBamTagger.bamtagmultiome import argparser
-from singlecellmultiomics.universalBamTagger.bamtagmultiome import run_multiome_tagging
+from singlecellmultiomics.universalBamTagger.bamtagmultiome import (
+    argparser,
+    run_multiome_tagging,
+)
 
 
 def run_tagging(bamfile):

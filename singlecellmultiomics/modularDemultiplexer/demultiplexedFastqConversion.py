@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+import argparse
+import collections
 import os
 import sys
-import collections
-import argparse
+
 import singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods
 from singlecellmultiomics.fastqProcessing.fastqIterator import FastqIterator
 

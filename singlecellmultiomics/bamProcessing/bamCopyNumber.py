@@ -2,39 +2,43 @@
 # -*- coding: utf-8 -*-
 
 import matplotlib
+
 import singlecellmultiomics
 
 matplotlib.rcParams['figure.dpi'] = 160
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import pandas as pd
-from glob import glob
-import seaborn as sns
-import pysam
-import numpy as np
-import multiprocessing
-from datetime import datetime
-from singlecellmultiomics.utils.plotting import GenomicPlot
-from singlecellmultiomics.bamProcessing.bamFunctions import verify_and_fix_bam
-from singlecellmultiomics.bamProcessing.bamBinCounts import count_fragments_binned, generate_commands, gc_correct_cn_frame, obtain_counts
-import os
 import argparse
-from colorama import Fore, Style
-
-
-from scipy.cluster.hierarchy import leaves_list
-from scipy.cluster.hierarchy import linkage,fcluster
-import sklearn.metrics
-import random
 import collections
-import seaborn as sns
-import more_itertools
-from singlecellmultiomics.utils.pandas import  createRowColorDataFrame
-from matplotlib.ticker import MaxNLocator
-from matplotlib.backends.backend_pdf import PdfPages
-
+import multiprocessing
+import os
+import random
+from datetime import datetime
+from glob import glob
 from multiprocessing import Pool
+
+import matplotlib.pyplot as plt
+import more_itertools
+import numpy as np
+import pandas as pd
+import pysam
+import seaborn as sns
+import sklearn.metrics
+from colorama import Fore, Style
+from matplotlib.backends.backend_pdf import PdfPages
+from matplotlib.ticker import MaxNLocator
+from scipy.cluster.hierarchy import fcluster, leaves_list, linkage
 from scipy.optimize import minimize
+
+from singlecellmultiomics.bamProcessing.bamBinCounts import (
+    count_fragments_binned,
+    gc_correct_cn_frame,
+    generate_commands,
+    obtain_counts,
+)
+from singlecellmultiomics.bamProcessing.bamFunctions import verify_and_fix_bam
+from singlecellmultiomics.utils.pandas import createRowColorDataFrame
+from singlecellmultiomics.utils.plotting import GenomicPlot
+
 
 def square_integer_dist( args,v):
     (amp,offset) = args

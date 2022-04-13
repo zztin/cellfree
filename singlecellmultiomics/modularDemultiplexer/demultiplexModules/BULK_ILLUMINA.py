@@ -1,9 +1,11 @@
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import UmiBarcodeDemuxMethod
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import DemultiplexingStrategy
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import NonMultiplexable
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import TaggedRecord
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import TagDefinitions
 import singlecellmultiomics.barcodeFileParser.barcodeFileParser as barcodeFileParser
+from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import (
+    DemultiplexingStrategy,
+    NonMultiplexable,
+    TagDefinitions,
+    TaggedRecord,
+    UmiBarcodeDemuxMethod,
+)
 
 
 class IlluminaBaseDemultiplexer(DemultiplexingStrategy):

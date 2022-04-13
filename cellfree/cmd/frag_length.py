@@ -1,6 +1,8 @@
 import click
+
 from cellfree.algorithm import cal_frag_length
 from cellfree.plot.plot_lengths import plot_forward_length, plot_reverse_length
+
 
 @click.command()
 @click.argument("prepared_bamfile")

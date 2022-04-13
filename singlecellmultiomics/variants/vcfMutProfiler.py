@@ -2,34 +2,43 @@
 # -*- coding: utf-8 -*-
 
 import matplotlib
+
 matplotlib.rcParams['figure.dpi'] = 160
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import pandas as pd
-from glob import glob
-import seaborn as sns
-import pysam
-import numpy as np
-import multiprocessing
-from datetime import datetime
-from singlecellmultiomics.utils.plotting import GenomicPlot
-from singlecellmultiomics.bamProcessing.bamBinCounts import count_fragments_binned, generate_commands, gc_correct_cn_frame, obtain_counts
-import os
 import argparse
+import multiprocessing
+import os
+from datetime import datetime
+from glob import glob
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import pysam
+import seaborn as sns
 from colorama import Fore, Style
 
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-import matplotlib as mpl
+from singlecellmultiomics.bamProcessing.bamBinCounts import (
+    count_fragments_binned,
+    gc_correct_cn_frame,
+    generate_commands,
+    obtain_counts,
+)
+from singlecellmultiomics.utils.plotting import GenomicPlot
+
 mpl.rcParams['figure.dpi'] = 300
 import itertools
 from collections import OrderedDict, defaultdict
-import seaborn as sns
-from singlecellmultiomics.utils.sequtils import reverse_complement
-from singlecellmultiomics.variants.substitutions import conversion_dict, substitution_plot
-import singlecellmultiomics
 
+import seaborn as sns
+
+import singlecellmultiomics
+from singlecellmultiomics.utils.sequtils import reverse_complement
+from singlecellmultiomics.variants.substitutions import (
+    conversion_dict,
+    substitution_plot,
+)
 
 conversions_single_nuc = ["CA", "CG", "CT", "TA", "TC", "TG"]
 

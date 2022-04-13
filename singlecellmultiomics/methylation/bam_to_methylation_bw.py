@@ -1,23 +1,25 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from singlecellmultiomics.molecule import TAPS, TAPSCHICMolecule, MoleculeIterator
-from singlecellmultiomics.fragment import CHICFragment
+import argparse
+from glob import glob
+from itertools import product
+from multiprocessing import Pool
+
+import numpy as np
+import pandas as pd
+import pyBigWig
+import pysam
+from pysamiterators import CachedFasta
+
 import singlecellmultiomics.fragment
 import singlecellmultiomics.molecule
 from singlecellmultiomics.alleleTools import AlleleResolver
 from singlecellmultiomics.bamProcessing import get_reference_path_from_bam
-import pysam
-from glob import glob
-import numpy as np
-import pandas as pd
-from multiprocessing import Pool
-from singlecellmultiomics.utils import pool_wrapper
 from singlecellmultiomics.bamProcessing.bamBinCounts import blacklisted_binning_contigs
-from itertools import product
-from pysamiterators import CachedFasta
-import pyBigWig
-import argparse
+from singlecellmultiomics.fragment import CHICFragment
+from singlecellmultiomics.molecule import TAPS, MoleculeIterator, TAPSCHICMolecule
+from singlecellmultiomics.utils import pool_wrapper
 
 
 def get_methylation_calls(bam, contig, fetch_start, fetch_end, start, stop, mq, bin_size, sample_mapping_function):

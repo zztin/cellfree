@@ -4,9 +4,8 @@
 import glob
 import os
 import re
-from colorama import Fore
-from colorama import Back
-from colorama import Style
+
+from colorama import Back, Fore, Style
 
 
 def formatColor(string):

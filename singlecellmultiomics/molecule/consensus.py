@@ -1,7 +1,9 @@
-import sklearn.ensemble
+import time
+
 import numpy as np
 import pandas as pd
-import time
+import sklearn.ensemble
+
 
 def calculate_consensus(molecule, consensus_model, molecular_identifier, out, **model_kwargs ):
     """

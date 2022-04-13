@@ -1,9 +1,12 @@
-from .statistic import StatisticHistogram
-import singlecellmultiomics.pyutils as pyutils
 import collections
-import pandas as pd
+
 import matplotlib.pyplot as plt
+import pandas as pd
 import seaborn as sns
+
+import singlecellmultiomics.pyutils as pyutils
+
+from .statistic import StatisticHistogram
 
 
 class MappingQualityHistogram(StatisticHistogram):

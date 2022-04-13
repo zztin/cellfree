@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import sys
+import datetime
+import distutils.spawn
+import glob
+import itertools as it
 import os
 import re
-import itertools as it
-import glob
-import time
-import datetime
 import subprocess
-import distutils.spawn
+import sys
+import time
 import uuid
+
 
 def create_job_file_paths(target_directory,job_alias=None, prefix=None, job_file_name=None):
 

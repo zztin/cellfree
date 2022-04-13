@@ -1,4 +1,6 @@
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import UmiBarcodeDemuxMethod
+from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import (
+    UmiBarcodeDemuxMethod,
+)
 
 
 # Cell seq 1 with 6bp UMI

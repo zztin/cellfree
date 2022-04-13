@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os
-import pysam
 import argparse
-import sys
-from singlecellmultiomics.bamProcessing import get_sample_to_read_group_dict
 import collections
+import os
+import sys
+
+import pysam
+
+from singlecellmultiomics.bamProcessing import get_sample_to_read_group_dict
 from singlecellmultiomics.utils.path import get_valid_filename
+
 
 def extract_samples( input_bam_path, output_path, capture_samples, head=None, write_group_rg=False, rg_group_prefix=None ):
     """

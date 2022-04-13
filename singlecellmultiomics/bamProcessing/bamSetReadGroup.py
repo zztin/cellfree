@@ -2,12 +2,19 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-import pysam
 import sys
 from datetime import datetime
+
+import pysam
+
 import singlecellmultiomics
+from singlecellmultiomics.bamProcessing.bamFunctions import (
+    get_read_group_from_read,
+    sorted_bam_file,
+    write_program_tag,
+)
 from singlecellmultiomics.fragment import Fragment
-from singlecellmultiomics.bamProcessing.bamFunctions import get_read_group_from_read, sorted_bam_file, write_program_tag
+
 
 def set_read_group( in_bam_path, out_bam_path, id:str, pl:str, lb:str, sm:str, pu:str, threads=4  ):
     """

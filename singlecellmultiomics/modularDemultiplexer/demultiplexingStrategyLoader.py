@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os
 import collections
 import glob
-import sys
-from colorama import Fore
-from colorama import Back
-from colorama import Style
 import importlib
 import inspect
-import traceback
-import singlecellmultiomics.modularDemultiplexer.demultiplexModules as dm
-import singlecellmultiomics.fastqProcessing.fastqIterator as fastqIterator
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import NonMultiplexable, IlluminaBaseDemultiplexer
 import logging
+import os
+import sys
+import traceback
+
+from colorama import Back, Fore, Style
+
+import singlecellmultiomics.fastqProcessing.fastqIterator as fastqIterator
+import singlecellmultiomics.modularDemultiplexer.demultiplexModules as dm
+from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import (
+    IlluminaBaseDemultiplexer,
+    NonMultiplexable,
+)
 
 
 class DemultiplexingStrategyLoader:

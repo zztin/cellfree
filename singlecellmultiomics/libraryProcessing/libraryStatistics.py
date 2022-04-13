@@ -1,28 +1,26 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from singlecellmultiomics.statistic import *
-import pandas as pd
-import matplotlib.pyplot as plt
-import os
-import sys
-import pysam
-import collections
 import argparse
-
-from singlecellmultiomics.bamProcessing import bam_is_processed_by_program
-
-from colorama import Fore
-from colorama import Back
-from colorama import Style
-import singlecellmultiomics.pyutils as pyutils
-from singlecellmultiomics.tagtools import tagtools
-from pysamiterators import MatePairIteratorIncludingNonProper
+import collections
 import gzip
+import os
 import pickle
 import subprocess
+import sys
 from glob import glob
 
 import matplotlib
+import matplotlib.pyplot as plt
+import pandas as pd
+import pysam
+from colorama import Back, Fore, Style
+from pysamiterators import MatePairIteratorIncludingNonProper
+
+import singlecellmultiomics.pyutils as pyutils
+from singlecellmultiomics.bamProcessing import bam_is_processed_by_program
+from singlecellmultiomics.statistic import *
+from singlecellmultiomics.tagtools import tagtools
+
 matplotlib.rcParams['figure.dpi'] = 160
 matplotlib.use('Agg')
 

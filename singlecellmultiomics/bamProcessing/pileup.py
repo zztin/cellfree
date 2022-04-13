@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from pysam.libcalignmentfile import IteratorColumnRegion
 from collections import Counter
+
+from pysam.libcalignmentfile import IteratorColumnRegion
+
 
 def pileup_truncated(bam,contig, start, stop,**kwargs):
     """

@@ -1,23 +1,26 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import itertools
-import random
-import imageio
-import numpy as np
-import sys
-import os
 import argparse
-import singlecellmultiomics.bamProcessing
 import collections
-import pysamiterators
+import itertools
+import os
+import random
+import sys
+
+import imageio
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 import pysam
+import pysamiterators
+
+import singlecellmultiomics
+import singlecellmultiomics.bamProcessing
 import singlecellmultiomics.fragment
 import singlecellmultiomics.molecule
 from singlecellmultiomics.molecule import MoleculeIterator
-import singlecellmultiomics
-import matplotlib.pyplot as plt
-import matplotlib
+
 matplotlib.rcParams['figure.dpi'] = 160
 matplotlib.use('Agg')
 

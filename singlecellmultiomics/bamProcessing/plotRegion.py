@@ -1,27 +1,25 @@
 #!/usr/bin/env python
 
 
-from multiprocessing import Pool
-from singlecellmultiomics.bamProcessing.bamFunctions import mate_iter
 import argparse
-import pysam
-from glob import glob
-import pandas as pd
-from singlecellmultiomics.bamProcessing import get_contig_sizes
-from collections import Counter, defaultdict
-from singlecellmultiomics.features import FeatureContainer
 import os
-from matplotlib.patches import Rectangle
-import matplotlib as mpl
-from scipy.ndimage import gaussian_filter
-import seaborn as sns
-import numpy as np
-import matplotlib.pyplot as plt
+from collections import Counter, defaultdict
+from glob import glob
 from itertools import product
-from singlecellmultiomics.bamProcessing import get_contigs_with_reads
+from multiprocessing import Pool
 
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import pysam
+import seaborn as sns
+from matplotlib.patches import Rectangle
+from scipy.ndimage import gaussian_filter
 
-
+from singlecellmultiomics.bamProcessing import get_contig_sizes, get_contigs_with_reads
+from singlecellmultiomics.bamProcessing.bamFunctions import mate_iter
+from singlecellmultiomics.features import FeatureContainer
 
 
 def _generate_count_dict(args):

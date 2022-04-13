@@ -2,25 +2,32 @@
 # -*- coding: utf-8 -*-
 
 import matplotlib
+
 matplotlib.rcParams['figure.dpi'] = 160
 matplotlib.use('Agg')
+import argparse
+import multiprocessing
+from collections import Counter, defaultdict
+from datetime import datetime
+from multiprocessing import Pool
+
 import matplotlib.pyplot as plt
 import pandas as pd
-import seaborn as sns
-import multiprocessing
-from singlecellmultiomics.bamProcessing.bamBinCounts import generate_commands, count_methylation_binned
-import argparse
-from colorama import Fore, Style
-from singlecellmultiomics.utils import dataframe_to_wig
-from singlecellmultiomics.methylation import MethylationCountMatrix
-from singlecellmultiomics.bamProcessing.bamFunctions import get_reference_from_pysam_alignmentFile
-from colorama import Fore,Style
-from collections import defaultdict, Counter
-from multiprocessing import Pool
-from datetime import datetime
 import pysam
-from singlecellmultiomics.bamProcessing import get_contig_sizes, get_contig_size
-from singlecellmultiomics.bamProcessing.bamBinCounts import generate_commands, read_counts
+import seaborn as sns
+from colorama import Fore, Style
+
+from singlecellmultiomics.bamProcessing import get_contig_size, get_contig_sizes
+from singlecellmultiomics.bamProcessing.bamBinCounts import (
+    count_methylation_binned,
+    generate_commands,
+    read_counts,
+)
+from singlecellmultiomics.bamProcessing.bamFunctions import (
+    get_reference_from_pysam_alignmentFile,
+)
+from singlecellmultiomics.methylation import MethylationCountMatrix
+from singlecellmultiomics.utils import dataframe_to_wig
 
 
 def sample_dict():

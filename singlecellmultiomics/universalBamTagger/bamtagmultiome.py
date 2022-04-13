@@ -1,37 +1,62 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import pysam
-from itertools import chain
-from singlecellmultiomics.molecule import MoleculeIterator, ReadIterator
-import singlecellmultiomics
-import singlecellmultiomics.molecule
-from singlecellmultiomics.molecule.consensus import calculate_consensus
-import singlecellmultiomics.fragment
-from singlecellmultiomics.bamProcessing.bamFunctions import sorted_bam_file, get_reference_from_pysam_alignmentFile, write_program_tag, MapabilityReader, verify_and_fix_bam,add_blacklisted_region
-from singlecellmultiomics.utils import is_main_chromosome
-from singlecellmultiomics.utils.submission import submit_job
-import singlecellmultiomics.alleleTools
-from singlecellmultiomics.universalBamTagger.customreads import CustomAssingmentQueryNameFlagger, BulkFlagger
-import singlecellmultiomics.features
-from pysamiterators import MatePairIteratorIncludingNonProper, MatePairIterator
-from singlecellmultiomics.universalBamTagger.tagging import generate_tasks, prefetch, run_tagging_tasks, write_job_gen_to_bed
-from singlecellmultiomics.bamProcessing.bamBinCounts import blacklisted_binning_contigs,get_bins_from_bed_iter
-from singlecellmultiomics.utils.binning import bp_chunked
-from singlecellmultiomics.bamProcessing import merge_bams, get_contigs_with_reads, sam_to_bam
-from singlecellmultiomics.fastaProcessing import CachedFastaNoHandle
-from singlecellmultiomics.utils.prefetch import UnitialisedClass
-from multiprocessing import Pool
-from typing import Generator
 import argparse
-import uuid
 import os
+import pickle
 import sys
+import uuid
+from datetime import datetime
+from itertools import chain
+from multiprocessing import Pool
+from time import sleep
+from typing import Generator
+
 import colorama
 import pkg_resources
-import pickle
-from datetime import datetime
-from time import sleep
+import pysam
+from pysamiterators import MatePairIterator, MatePairIteratorIncludingNonProper
+
+import singlecellmultiomics
+import singlecellmultiomics.alleleTools
+import singlecellmultiomics.features
+import singlecellmultiomics.fragment
+import singlecellmultiomics.molecule
+from singlecellmultiomics.bamProcessing import (
+    get_contigs_with_reads,
+    merge_bams,
+    sam_to_bam,
+)
+from singlecellmultiomics.bamProcessing.bamBinCounts import (
+    blacklisted_binning_contigs,
+    get_bins_from_bed_iter,
+)
+from singlecellmultiomics.bamProcessing.bamFunctions import (
+    MapabilityReader,
+    add_blacklisted_region,
+    get_reference_from_pysam_alignmentFile,
+    sorted_bam_file,
+    verify_and_fix_bam,
+    write_program_tag,
+)
+from singlecellmultiomics.fastaProcessing import CachedFastaNoHandle
+from singlecellmultiomics.molecule import MoleculeIterator, ReadIterator
+from singlecellmultiomics.molecule.consensus import calculate_consensus
+from singlecellmultiomics.universalBamTagger.customreads import (
+    BulkFlagger,
+    CustomAssingmentQueryNameFlagger,
+)
+from singlecellmultiomics.universalBamTagger.tagging import (
+    generate_tasks,
+    prefetch,
+    run_tagging_tasks,
+    write_job_gen_to_bed,
+)
+from singlecellmultiomics.utils import is_main_chromosome
+from singlecellmultiomics.utils.binning import bp_chunked
+from singlecellmultiomics.utils.prefetch import UnitialisedClass
+from singlecellmultiomics.utils.submission import submit_job
+
 # Supress [E::idx_find_and_load] Could not retrieve index file for, see https://github.com/pysam-developers/pysam/issues/939
 pysam.set_verbosity(0)
 

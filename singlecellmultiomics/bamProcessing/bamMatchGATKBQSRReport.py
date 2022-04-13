@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os
-import pysam
 import argparse
-import sys
 import collections
-import pysam
-import pandas as pd
+import os
+import sys
 from uuid import uuid4
+
+import pandas as pd
+import pysam
 
 
 def tables_gen(path,verbose=False):

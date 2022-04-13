@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import pysam
-from collections import Counter, defaultdict
-import pandas as pd
-import seaborn as sns
-from multiprocessing import Pool
-from singlecellmultiomics.bamProcessing.bamBinCounts import blacklisted_binning_contigs
-from more_itertools import grouper
 import argparse
 import os
+from collections import Counter, defaultdict
+from multiprocessing import Pool
+
+import pandas as pd
+import pysam
+import seaborn as sns
+from more_itertools import grouper
+
+from singlecellmultiomics.bamProcessing.bamBinCounts import blacklisted_binning_contigs
+
 
 def overseq_dict():
     return defaultdict(Counter)

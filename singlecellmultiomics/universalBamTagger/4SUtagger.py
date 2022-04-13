@@ -1,40 +1,41 @@
 #!/usr/bin/env python
 
 import matplotlib as mpl
+
 mpl.rcParams['figure.dpi'] = 300
 
+import argparse
+import gzip
+import os
+import pickle
+from collections import Counter, defaultdict
+from multiprocessing import Pool
+from uuid import uuid4
+
 import matplotlib.pyplot as plt
-import seaborn as sns
+import numpy as np
+import pandas as pd
 import pysam
+import seaborn as sns
 from pysamiterators import CachedFasta, MatePairIterator
+from scipy import stats
+
+from singlecellmultiomics.bamProcessing import merge_bams, sorted_bam_file
+from singlecellmultiomics.features import FeatureContainer
+from singlecellmultiomics.fragment import SingleEndTranscriptFragment
 
 # Molecule modules:
-from singlecellmultiomics.molecule import TranscriptMolecule, MoleculeIterator
-from singlecellmultiomics.fragment import SingleEndTranscriptFragment
-from singlecellmultiomics.features import FeatureContainer
+from singlecellmultiomics.molecule import MoleculeIterator, TranscriptMolecule
+from singlecellmultiomics.utils import (
+    complement,
+    is_main_chromosome,
+    reverse_complement,
+)
+from singlecellmultiomics.variants import substitution_plot, vcf_to_position_set
 
 # Conversion modules:
 from singlecellmultiomics.variants.substitutions import conversion_dict_stranded
-from singlecellmultiomics.variants import substitution_plot, vcf_to_position_set
-from singlecellmultiomics.utils import reverse_complement, complement
-from collections import defaultdict, Counter
-from singlecellmultiomics.utils import is_main_chromosome
-from singlecellmultiomics.bamProcessing import sorted_bam_file, merge_bams
 
-
-from scipy import stats
-from multiprocessing import Pool
-import os
-
-import argparse
-
-import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
-import numpy as np
-import pickle
-import gzip
-from uuid import uuid4
 
 def substitution_plot_stranded(pattern_counts: dict,
                       figsize: tuple = (12, 4),

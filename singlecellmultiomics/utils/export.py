@@ -1,11 +1,14 @@
-import pandas as pd
-from singlecellmultiomics.bamProcessing import get_contig_sizes
-from collections import defaultdict
-import pysam
-import pyBigWig
-import numpy as np
 import gzip
 import pickle
+from collections import defaultdict
+
+import numpy as np
+import pandas as pd
+import pyBigWig
+import pysam
+
+from singlecellmultiomics.bamProcessing import get_contig_sizes
+
 
 def dataframe_to_wig(df: pd.DataFrame, wig_path: str, span: int = 1, stepper: str = "variableStep",
                      graphType: str = "points", offset: int = 1, extra_header=''):

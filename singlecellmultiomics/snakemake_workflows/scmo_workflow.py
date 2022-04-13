@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import singlecellmultiomics
 import argparse
-import pkg_resources
-from colorama import Fore, Style
 import os
 from shutil import copyfile
+
+import pkg_resources
+from colorama import Fore, Style
+
+import singlecellmultiomics
 
 
 def get_workflow_list(include_hidden=False):

@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import matplotlib.pyplot as plt
-import numpy as np
-import matplotlib as mpl
-import pandas as pd
-import seaborn as sns
 from collections import OrderedDict
 from itertools import product
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import seaborn as sns
 
 mpl.rcParams['figure.dpi'] = 300
 

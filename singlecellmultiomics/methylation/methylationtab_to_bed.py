@@ -1,17 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import argparse
-import pyBigWig
-from multiprocessing import Pool
-from glob import glob
-import os
 import gzip
+import os
+from glob import glob
+from multiprocessing import Pool
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from singlecellmultiomics.methylation import sort_methylation_tabfile, methylation_tabfile_to_bed
-from singlecellmultiomics.utils import create_fasta_dict_file
+import pyBigWig
 
+from singlecellmultiomics.methylation import (
+    methylation_tabfile_to_bed,
+    sort_methylation_tabfile,
+)
+from singlecellmultiomics.utils import create_fasta_dict_file
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(

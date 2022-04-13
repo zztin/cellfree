@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from Bio import bgzf
 import os
+
+from Bio import bgzf
 
 
 class BlockZip():

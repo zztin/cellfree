@@ -1,8 +1,9 @@
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import DemultiplexingStrategy
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import NonMultiplexable
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import TaggedRecord
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import TagDefinitions
-
+from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import (
+    DemultiplexingStrategy,
+    NonMultiplexable,
+    TagDefinitions,
+    TaggedRecord,
+)
 
 # ask buys or annaa about it
 

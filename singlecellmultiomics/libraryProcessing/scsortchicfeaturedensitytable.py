@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from singlecellmultiomics.features import FeatureContainer
-from multiprocessing import Pool
-from singlecellmultiomics.utils import pool_wrapper
-from more_itertools import chunked
-import pandas as pd
-import numpy as np
-import os
 import argparse
-import pysam
 import gzip
+import os
+from multiprocessing import Pool
+
+import numpy as np
+import pandas as pd
+import pysam
+from more_itertools import chunked
+
+from singlecellmultiomics.features import FeatureContainer
+from singlecellmultiomics.utils import pool_wrapper
 
 
 def coord_to_index_clip(coordinate,centroid,radius,mirror,bp_per_bin):

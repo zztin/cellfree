@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from singlecellmultiomics.utils import bdbplot,organoidTools
 from copy import deepcopy
 from importlib import reload
+
 import numpy as np
+
+from singlecellmultiomics.utils import bdbplot, organoidTools
+
 
 class StatePlotter():
 
@@ -68,7 +71,7 @@ class StatePlotter():
             else:
 
                 chromosomeSize = row[ row['chromosome']==chromosome ]['endCoordinate'].max()
-                
+
 
             chromosomePixelWidth = chromosomeSize * self.pixelsPerBase
 

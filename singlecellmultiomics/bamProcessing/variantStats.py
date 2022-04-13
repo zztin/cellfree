@@ -1,21 +1,31 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import pysam
-import singlecellmultiomics.molecule
-import singlecellmultiomics.fragment
-import singlecellmultiomics.pyutils
-import pysamiterators
+import argparse
 import collections
 import glob
-import pickle
-import pandas as pd
-from colorama import Fore, Style
-from singlecellmultiomics.bamProcessing.bamFunctions import sorted_bam_file, sort_and_index, get_reference_from_pysam_alignmentFile, add_readgroups_to_header, write_program_tag, GATK_indel_realign
-from singlecellmultiomics.pyutils import meanOfCounter
-import argparse
 import os
+import pickle
 import sys
 import traceback
+
+import pandas as pd
+import pysam
+import pysamiterators
+from colorama import Fore, Style
+
+import singlecellmultiomics.fragment
+import singlecellmultiomics.molecule
+import singlecellmultiomics.pyutils
+from singlecellmultiomics.bamProcessing.bamFunctions import (
+    GATK_indel_realign,
+    add_readgroups_to_header,
+    get_reference_from_pysam_alignmentFile,
+    sort_and_index,
+    sorted_bam_file,
+    write_program_tag,
+)
+from singlecellmultiomics.pyutils import meanOfCounter
+
 f'Please use an environment with python 3.6 or higher!'
 
 

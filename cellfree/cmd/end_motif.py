@@ -1,4 +1,5 @@
 import click
+
 from cellfree.algorithm import end_motif
 
 

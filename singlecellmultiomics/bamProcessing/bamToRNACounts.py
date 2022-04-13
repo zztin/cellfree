@@ -1,29 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import scanpy as sc
-import matplotlib.pyplot as plt
-import os
-import sys
-import pysam
-import collections
 import argparse
+import collections
 import gzip
-import pickle
-import matplotlib
-import numpy as np
-import singlecellmultiomics
-import singlecellmultiomics.molecule
-import singlecellmultiomics.fragment
-import singlecellmultiomics.features
-import pysamiterators.iterators
-import pysam
-import pandas as pd
-import scipy.sparse
-import gzip
-from singlecellmultiomics.molecule import MoleculeIterator
-from singlecellmultiomics.alleleTools import alleleTools
 import multiprocessing
+import os
+import pickle
+import sys
+
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import pysam
+import pysamiterators.iterators
+import scanpy as sc
+import scipy.sparse
+
+import singlecellmultiomics
+import singlecellmultiomics.features
+import singlecellmultiomics.fragment
+import singlecellmultiomics.molecule
+from singlecellmultiomics.alleleTools import alleleTools
 from singlecellmultiomics.bamProcessing.bamFunctions import sort_and_index
+from singlecellmultiomics.molecule import MoleculeIterator
 
 matplotlib.use('Agg')
 matplotlib.rcParams['figure.dpi'] = 160

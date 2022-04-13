@@ -1,8 +1,11 @@
-import pysam
-from multiprocessing import Pool
-from collections import defaultdict,OrderedDict
+from collections import OrderedDict, defaultdict
 from itertools import product
+from multiprocessing import Pool
+
+import pysam
+
 from singlecellmultiomics.utils.sequtils import reverse_complement
+
 
 def conversion_dict():
     conversions_single_nuc = ("CA", "CG", "CT", "TA", "TC", "TG")

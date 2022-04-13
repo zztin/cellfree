@@ -1,23 +1,22 @@
-from lxml import etree
-import math
 import collections
-from collections import Counter
-from collections import OrderedDict
-import numpy as np
-from singlecellmultiomics.utils import bdbbio
+import itertools
+import math
 import os
+import time
+from collections import Counter, OrderedDict
+
 import matplotlib.cm
-from Bio import SeqIO
-from Bio.Seq import Seq
 import matplotlib.pyplot as plt
-from colorama import Fore #,Back, Style
-from colorama import Back
-from colorama import Style
-from colorama import init
+import numpy as np
 import scipy
 import scipy.cluster
-import time
-import itertools
+from Bio import SeqIO
+from Bio.Seq import Seq
+from colorama import Fore  # ,Back, Style
+from colorama import Back, Style, init
+from lxml import etree
+
+from singlecellmultiomics.utils import bdbbio
 
 init(autoreset=True)
 
@@ -267,6 +266,7 @@ def matplotHeatmap( D, YC, figsize=(10,10), clust=True, xLab=None, yLab=None, sh
     plt.rcParams["axes.grid"] = False
     import scipy
     import scipy.cluster.hierarchy as sch
+
     # Compute and plot first dendrogram.
     fig = plt.figure(figsize=figsize)
     if not clust:
@@ -330,6 +330,7 @@ def matplotHeatmap( D, YC, figsize=(10,10), clust=True, xLab=None, yLab=None, sh
 
 def tsnePlot(data, labels=None, components=2, perplexity=30.0, iterations=1000):
     from sklearn.manifold import TSNE
+
     #from MulticoreTSNE import MulticoreTSNE as TSNE
     model = TSNE(n_components=components, perplexity=perplexity, n_iter=iterations ) #random_state=0, n_jobs=8,
     transformedPoints = model.fit_transform(data.astype(np.float64))

@@ -1,22 +1,22 @@
 #!/usr/bin/env python
-import sys, argparse, datetime
+import argparse
 import collections
-import os
-import singlecellmultiomics
-import collections
+import datetime
 import itertools
-import numpy as np
+import os
 import random
+import sys
+from importlib import reload
+
+import matplotlib.colors
+import numpy as np
+import pandas as pd
 import pysam
 import pysamiterators
-import matplotlib.colors
-from importlib import reload
-import pandas as pd
+from more_itertools import chunked, windowed
 from scipy.interpolate import interp1d
-from more_itertools import chunked
-from more_itertools import windowed
-import numpy as np
 
+import singlecellmultiomics
 from singlecellmultiomics.bamProcessing import sorted_bam_file
 from singlecellmultiomics.bamProcessing.bamToCountTable import coordinate_to_bins
 

@@ -1,4 +1,6 @@
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import UmiBarcodeDemuxMethod
+from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import (
+    UmiBarcodeDemuxMethod,
+)
 
 # MSPJI with 3bp UMI
 

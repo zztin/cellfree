@@ -1,22 +1,25 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import singlecellmultiomics.features
+import argparse
+import collections
+import gzip
+import importlib
+import itertools
+import os
+import pickle
+import sys
+
+import matplotlib
+import matplotlib.lines as mlines
 import matplotlib.pyplot as plt
 import numpy as np
-import itertools
 import pandas as pd
-import importlib
-import singlecellmultiomics.universalBamTagger.universalBamTagger as ut
-import pysamiterators.iterators as pyts
-import matplotlib.lines as mlines
-import os
-import sys
 import pysam
-import collections
-import argparse
-import gzip
-import pickle
-import matplotlib
+import pysamiterators.iterators as pyts
+
+import singlecellmultiomics.features
+import singlecellmultiomics.universalBamTagger.universalBamTagger as ut
+
 matplotlib.rcParams['figure.dpi'] = 160
 matplotlib.use('Agg')
 

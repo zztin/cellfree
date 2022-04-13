@@ -1,5 +1,6 @@
-from singlecellmultiomics.utils.sequtils import reverse_complement
 from singlecellmultiomics.fragment import Fragment
+from singlecellmultiomics.utils.sequtils import reverse_complement
+
 
 class ScarTraceFragment(Fragment):
     """

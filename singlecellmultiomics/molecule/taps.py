@@ -1,15 +1,16 @@
 import itertools
-from singlecellmultiomics.molecule import Molecule
-from singlecellmultiomics.molecule.nlaIII import NlaIIIMolecule
-from singlecellmultiomics.molecule.nlaIII import AnnotatedNLAIIIMolecule
-from singlecellmultiomics.molecule.chic import CHICMolecule
-from singlecellmultiomics.molecule.chic import AnnotatedCHICMolecule
 from collections import Counter
-from singlecellmultiomics.utils.sequtils import complement
-from itertools import product
-from matplotlib.pyplot import get_cmap
 from copy import copy
+from itertools import product
+
 import numpy as np
+from matplotlib.pyplot import get_cmap
+
+from singlecellmultiomics.molecule import Molecule
+from singlecellmultiomics.molecule.chic import AnnotatedCHICMolecule, CHICMolecule
+from singlecellmultiomics.molecule.nlaIII import AnnotatedNLAIIIMolecule, NlaIIIMolecule
+from singlecellmultiomics.utils.sequtils import complement
+
 complement_trans = str.maketrans('ATGC', 'TACG')
 
 

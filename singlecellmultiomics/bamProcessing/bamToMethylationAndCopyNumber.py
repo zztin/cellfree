@@ -2,11 +2,12 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-import pysam
 import collections
-import pandas as pd
-import numpy as np
 import os
+
+import numpy as np
+import pandas as pd
+import pysam
 
 
 def obtain_approximate_reference_cut_position(site, contig, alt_spans):

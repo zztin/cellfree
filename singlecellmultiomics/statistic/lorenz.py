@@ -1,11 +1,14 @@
-import matplotlib.pyplot as plt
-from singlecellmultiomics.bamProcessing import random_sample_bam
-import singlecellmultiomics.pyutils as pyutils
 import collections
-import pandas as pd
+
 import matplotlib
+import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 import seaborn as sns
+
+import singlecellmultiomics.pyutils as pyutils
+from singlecellmultiomics.bamProcessing import random_sample_bam
+
 matplotlib.rcParams['figure.dpi'] = 160
 matplotlib.use('Agg')
 

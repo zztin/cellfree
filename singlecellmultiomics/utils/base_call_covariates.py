@@ -1,24 +1,31 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from multiprocessing import Pool
-from pysam import AlignmentFile, FastaFile
-import pysam
-from singlecellmultiomics.bamProcessing.bamBinCounts import blacklisted_binning_contigs
-from singlecellmultiomics.utils.sequtils import reverse_complement, get_context
-from singlecellmultiomics.utils import prob_to_phred
-from pysamiterators import CachedFasta
-from array import array
-from uuid import uuid4
-from singlecellmultiomics.bamProcessing import merge_bams, get_contigs_with_reads, has_variant_reads
 import argparse
-import pickle
 import gzip
-import pandas as pd
-import numpy as np
 import os
+import pickle
+from array import array
+from collections import Counter, defaultdict
 from dataclasses import dataclass, field
-from collections import defaultdict,Counter
+from multiprocessing import Pool
+from uuid import uuid4
+
+import numpy as np
+import pandas as pd
+import pysam
+from pysam import AlignmentFile, FastaFile
+from pysamiterators import CachedFasta
+
+from singlecellmultiomics.bamProcessing import (
+    get_contigs_with_reads,
+    has_variant_reads,
+    merge_bams,
+)
+from singlecellmultiomics.bamProcessing.bamBinCounts import blacklisted_binning_contigs
+from singlecellmultiomics.utils import prob_to_phred
+from singlecellmultiomics.utils.sequtils import get_context, reverse_complement
+
 
 def get_covariate_key(read, qpos, refpos, reference, refbase, cycle_bin_size=3, k_rad=1):
 

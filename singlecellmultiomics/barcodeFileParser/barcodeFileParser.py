@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import glob
-import logging
-from colorama import Fore
-from colorama import Back
-from colorama import Style
-import os
 import collections
-import itertools
+import glob
 import gzip
+import itertools
+import logging
+import os
+
+from colorama import Back, Fore, Style
+
 
 #logging.basicConfig(level=logging.DEBUG)
 # http://codereview.stackexchange.com/questions/88912/create-a-list-of-all-strings-within-hamming-distance-of-a-reference-string-with

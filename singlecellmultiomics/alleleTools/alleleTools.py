@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import pysam
 import argparse
 import collections
 import functools
 import gzip
 import os
+
+import pysam
+
 from singlecellmultiomics.utils import Prefetcher
+
 
 def get_allele_dict():
     return collections.defaultdict(nested_set_defaultdict)

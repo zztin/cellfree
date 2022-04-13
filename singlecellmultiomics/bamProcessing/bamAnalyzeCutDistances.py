@@ -1,19 +1,25 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from multiprocessing import Pool
-import pysam
-import pandas as pd
-import os
-from scipy.optimize import curve_fit
 import argparse
-from singlecellmultiomics.bamProcessing.bamFunctions import get_contigs_with_reads, get_r1_counts_per_cell
-from singlecellmultiomics.bamProcessing.bamBinCounts import merge_overlapping_ranges
-from collections import Counter, defaultdict
-import numpy as np
-import seaborn as sns
 import math
-import matplotlib.pyplot as plt
+import os
+from collections import Counter, defaultdict
+from multiprocessing import Pool
+
 import matplotlib as mpl
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+import pysam
+import seaborn as sns
+from scipy.optimize import curve_fit
+
+from singlecellmultiomics.bamProcessing.bamBinCounts import merge_overlapping_ranges
+from singlecellmultiomics.bamProcessing.bamFunctions import (
+    get_contigs_with_reads,
+    get_r1_counts_per_cell,
+)
+
 mpl.rcParams['figure.dpi'] = 300
 
 class DivCounter(Counter):

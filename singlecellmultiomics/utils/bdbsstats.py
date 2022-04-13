@@ -1,9 +1,11 @@
 # Buys's statsistics doodles
-import scipy.stats
-import numpy as np
 import collections
-import sklearn.metrics
+
 import matplotlib.pyplot as plt
+import numpy as np
+import scipy.stats
+import sklearn.metrics
+
 
 def sampleFromCounter(counter, n, replace=True, outputCounter=False):
 	counterSum = sum(counter.values())

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os
-import pysam
 import argparse
+import os
 import sys
 
+import pysam
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(

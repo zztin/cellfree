@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import pysam
 import collections
+
+import pysam
 import pysamiterators.iterators as pysamIterators
 
 complement = str.maketrans('ATCGN', 'TAGCN')

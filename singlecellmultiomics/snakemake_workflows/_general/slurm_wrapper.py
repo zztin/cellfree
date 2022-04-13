@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from singlecellmultiomics.utils.submission import submit_job
-
 import os
-import sys
 import re
 import subprocess
+import sys
 import uuid
+
 from snakemake.utils import read_job_properties
+
+from singlecellmultiomics.utils.submission import submit_job
 
 # load
 ## loading job stdout & stderr path

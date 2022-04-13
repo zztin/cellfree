@@ -1,5 +1,10 @@
-from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import UmiBarcodeDemuxMethod, NonMultiplexable, IlluminaBaseDemultiplexer
+from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import (
+    IlluminaBaseDemultiplexer,
+    NonMultiplexable,
+    UmiBarcodeDemuxMethod,
+)
 from singlecellmultiomics.modularDemultiplexer.demultiplexModules import CELSeq2_c8_u6
+
 # SCCHIC using NLAIII adapter, 384 well format with 3bp UMI followed by
 # "A" base
 

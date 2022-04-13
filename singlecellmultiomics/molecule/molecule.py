@@ -1,23 +1,31 @@
-from singlecellmultiomics.utils.sequtils import hamming_distance
-import pysamiterators.iterators
-import singlecellmultiomics.bamProcessing
-from singlecellmultiomics.fragment import Fragment
-from array import array
-import itertools
-import numpy as np
-from singlecellmultiomics.utils import style_str, prob_to_phred, phredscores_to_base_call, base_probabilities_to_likelihood, likelihood_to_prob
-import textwrap
-import singlecellmultiomics.alleleTools
 import functools
+import itertools
+import textwrap
 import typing
+from array import array
+from collections import Counter, defaultdict
+from uuid import uuid4
+
+import numpy as np
+import pandas as pd
 import pysam
 import pysamiterators
-from singlecellmultiomics.utils import find_ranges, create_MD_tag
-import pandas as pd
-from uuid import uuid4
+import pysamiterators.iterators
 from cached_property import cached_property
-from collections import Counter, defaultdict
 
+import singlecellmultiomics.alleleTools
+import singlecellmultiomics.bamProcessing
+from singlecellmultiomics.fragment import Fragment
+from singlecellmultiomics.utils import (
+    base_probabilities_to_likelihood,
+    create_MD_tag,
+    find_ranges,
+    likelihood_to_prob,
+    phredscores_to_base_call,
+    prob_to_phred,
+    style_str,
+)
+from singlecellmultiomics.utils.sequtils import hamming_distance
 
 ###############
 

@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import singlecellmultiomics.modularDemultiplexer
+import argparse
+import collections
+import gzip  # for loading blacklist bedfiles
+import itertools
 import os
 import sys
-import pysam
-import collections
-import argparse
-import pandas as pd
+
 import numpy as np
-import itertools
+import pandas as pd
+import pysam
+
+import singlecellmultiomics.modularDemultiplexer
 import singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods
-import gzip  # for loading blacklist bedfiles
+
 TagDefinitions = singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods.TagDefinitions
 
 
@@ -620,7 +623,7 @@ if __name__ == '__main__':
         '-head',
         type=int,
         help='Run the algorithm only on the first N reads to check if the result looks like what you expect.')
-    
+
 
     argparser.add_argument(
         '--bulk',

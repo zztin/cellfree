@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import scipy
 import numpy as np
+import scipy
 import scipy.stats
 
 

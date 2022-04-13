@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-import pysam
-import numpy as np
 import argparse
-import os
-import itertools
 import gzip
-import pandas as pd
+import itertools
 import multiprocessing
+import os
+
+import numpy as np
+import pandas as pd
+import pysam
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser(

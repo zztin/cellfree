@@ -1,5 +1,5 @@
-from singlecellmultiomics.universalBamTagger.digest import DigestFlagger
 from singlecellmultiomics.tagtools import tagtools
+from singlecellmultiomics.universalBamTagger.digest import DigestFlagger
 
 
 class NlaIIIFlagger(DigestFlagger):
