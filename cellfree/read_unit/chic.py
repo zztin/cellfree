@@ -1,5 +1,6 @@
-from cellfree.read_unit.read_unit import Fragment
 from singlecellmultiomics.utils.sequtils import hamming_distance
+
+from cellfree.read_unit.read_unit import Fragment
 
 
 class CHICFragment(Fragment):

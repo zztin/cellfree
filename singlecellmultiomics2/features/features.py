@@ -10,7 +10,6 @@ from copy import copy
 import numpy as np
 import pandas as pd
 import pysam
-
 from singlecellmultiomics.utils import Prefetcher
 
 

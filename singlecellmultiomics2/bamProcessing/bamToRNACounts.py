@@ -16,7 +16,6 @@ import pysam
 import pysamiterators.iterators
 import scanpy as sc
 import scipy.sparse
-
 import singlecellmultiomics
 import singlecellmultiomics.features
 import singlecellmultiomics.fragment

@@ -17,7 +17,6 @@ import numpy as np
 import pandas as pd
 import pysam
 import pysamiterators.iterators as pysamIterators
-
 import singlecellmultiomics.modularDemultiplexer
 from singlecellmultiomics.statistic import PlateStatistic
 from singlecellmultiomics.tagtools import tagtools

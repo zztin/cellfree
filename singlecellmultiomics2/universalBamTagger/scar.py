@@ -1,5 +1,4 @@
 import numpy as np
-
 from singlecellmultiomics.tagtools import tagtools
 from singlecellmultiomics.universalBamTagger.digest import DigestFlagger
 from singlecellmultiomics.utils.sequtils import phred_to_prob

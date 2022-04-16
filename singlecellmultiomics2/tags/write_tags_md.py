@@ -1,6 +1,5 @@
-import tabulate
-
 import singlecellmultiomics.tags
+import tabulate
 
 if __name__ == '__main__':
     table = []

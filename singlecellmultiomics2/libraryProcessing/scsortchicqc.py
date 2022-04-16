@@ -15,13 +15,12 @@ import scipy.stats
 import seaborn as sns
 from scipy.cluster.hierarchy import cut_tree, linkage
 from scipy.spatial.distance import squareform
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.manifold import TSNE
-from sklearn.model_selection import KFold
-
 from singlecellmultiomics.libraryProcessing import SampleSheet
 from singlecellmultiomics.utils import createRowColorDataFrame
 from singlecellmultiomics.utils.plotting import plot_plate, plot_plate_layout
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.manifold import TSNE
+from sklearn.model_selection import KFold
 
 
 def read_plate_statistics(path):

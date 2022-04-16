@@ -5,7 +5,6 @@ from itertools import product
 
 import numpy as np
 from matplotlib.pyplot import get_cmap
-
 from singlecellmultiomics.molecule import Molecule
 from singlecellmultiomics.molecule.chic import AnnotatedCHICMolecule, CHICMolecule
 from singlecellmultiomics.molecule.nlaIII import AnnotatedNLAIIIMolecule, NlaIIIMolecule

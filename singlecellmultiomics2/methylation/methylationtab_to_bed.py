@@ -10,7 +10,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import pyBigWig
-
 from singlecellmultiomics.methylation import (
     methylation_tabfile_to_bed,
     sort_methylation_tabfile,

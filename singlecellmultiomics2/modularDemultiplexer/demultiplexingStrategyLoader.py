@@ -9,10 +9,9 @@ import os
 import sys
 import traceback
 
-from colorama import Back, Fore, Style
-
 import singlecellmultiomics.fastqProcessing.fastqIterator as fastqIterator
 import singlecellmultiomics.modularDemultiplexer.demultiplexModules as dm
+from colorama import Back, Fore, Style
 from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import (
     IlluminaBaseDemultiplexer,
     NonMultiplexable,

@@ -9,9 +9,8 @@ import pandas as pd
 import pysam
 import pysamiterators
 import seaborn as sns
-import sklearn.ensemble
-
 import singlecellmultiomics
+import sklearn.ensemble
 from singlecellmultiomics.fragment import NlaIIIFragment
 from singlecellmultiomics.molecule import MoleculeIterator, NlaIIIMolecule
 

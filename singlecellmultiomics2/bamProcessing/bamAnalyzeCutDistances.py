@@ -13,7 +13,6 @@ import pandas as pd
 import pysam
 import seaborn as sns
 from scipy.optimize import curve_fit
-
 from singlecellmultiomics.bamProcessing.bamBinCounts import merge_overlapping_ranges
 from singlecellmultiomics.bamProcessing.bamFunctions import (
     get_contigs_with_reads,

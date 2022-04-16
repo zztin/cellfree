@@ -5,7 +5,6 @@ import collections
 import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
-
 import singlecellmultiomics.pyutils as pyutils
 
 from .statistic import StatisticHistogram

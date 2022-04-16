@@ -5,9 +5,8 @@ import os
 from shutil import copyfile
 
 import pkg_resources
-from colorama import Fore, Style
-
 import singlecellmultiomics
+from colorama import Fore, Style
 
 
 def get_workflow_list(include_hidden=False):

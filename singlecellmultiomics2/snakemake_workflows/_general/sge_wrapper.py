@@ -6,9 +6,8 @@ import subprocess
 import sys
 import uuid
 
-from snakemake.utils import read_job_properties
-
 from singlecellmultiomics.utils.submission import submit_job
+from snakemake.utils import read_job_properties
 
 # load
 ## loading job stdout & stderr path

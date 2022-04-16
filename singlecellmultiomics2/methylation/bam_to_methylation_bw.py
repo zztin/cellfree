@@ -10,10 +10,9 @@ import numpy as np
 import pandas as pd
 import pyBigWig
 import pysam
-from pysamiterators import CachedFasta
-
 import singlecellmultiomics.fragment
 import singlecellmultiomics.molecule
+from pysamiterators import CachedFasta
 from singlecellmultiomics.alleleTools import AlleleResolver
 from singlecellmultiomics.bamProcessing import get_reference_path_from_bam
 from singlecellmultiomics.bamProcessing.bamBinCounts import blacklisted_binning_contigs

@@ -16,7 +16,6 @@ import numpy as np
 import pandas as pd
 import pysam
 import pysamiterators.iterators as pyts
-
 import singlecellmultiomics.features
 import singlecellmultiomics.universalBamTagger.universalBamTagger as ut
 

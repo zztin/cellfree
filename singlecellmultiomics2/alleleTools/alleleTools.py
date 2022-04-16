@@ -7,7 +7,6 @@ import gzip
 import os
 
 import pysam
-
 from singlecellmultiomics.utils import Prefetcher
 
 

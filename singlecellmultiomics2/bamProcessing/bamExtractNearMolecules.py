@@ -12,7 +12,6 @@ import pandas as pd
 import pysam
 import seaborn as sns
 from pysamiterators import MatePairIterator
-
 from singlecellmultiomics.bamProcessing.bamAnalyzeCutDistances import (
     get_sc_cut_dictionary,
     get_stranded_pairwise_counts,

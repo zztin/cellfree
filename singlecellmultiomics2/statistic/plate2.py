@@ -7,7 +7,6 @@ import matplotlib.patheffects as path_effects
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-
 import singlecellmultiomics.pyutils as pyutils
 from singlecellmultiomics.utils.plotting import plot_plate
 

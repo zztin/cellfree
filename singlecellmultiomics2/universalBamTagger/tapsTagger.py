@@ -13,7 +13,6 @@ import numpy as np
 import pandas as pd
 import pysam
 import pysamiterators
-
 import singlecellmultiomics.bamProcessing.bamFunctions as bf
 import singlecellmultiomics.features
 import singlecellmultiomics.fragment

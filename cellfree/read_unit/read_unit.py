@@ -8,7 +8,6 @@
 import itertools
 
 import pysamiterators.iterators
-
 import singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods
 from singlecellmultiomics.bamProcessing import get_read_group_from_read
 from singlecellmultiomics.features import FeatureAnnotatedObject

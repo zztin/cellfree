@@ -12,7 +12,6 @@ import numpy as np
 import pandas as pd
 import pysam
 import seaborn as sns
-
 from singlecellmultiomics.bamProcessing import (
     get_contigs_with_reads,
     get_reference_path_from_bam,

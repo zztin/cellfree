@@ -1,7 +1,6 @@
 import collections
 
 import pandas as pd
-
 from singlecellmultiomics.molecule.molecule import Molecule
 
 

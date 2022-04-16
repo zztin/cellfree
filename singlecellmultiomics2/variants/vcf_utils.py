@@ -3,7 +3,6 @@ from itertools import product
 from multiprocessing import Pool
 
 import pysam
-
 from singlecellmultiomics.utils.sequtils import reverse_complement
 
 

@@ -2,7 +2,6 @@ import collections
 import itertools
 
 import pysamiterators.iterators
-
 from singlecellmultiomics.universalBamTagger.digest import DigestFlagger
 
 complement = str.maketrans('ATGC', 'TACG')

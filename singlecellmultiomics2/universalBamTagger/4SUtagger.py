@@ -19,7 +19,6 @@ import pysam
 import seaborn as sns
 from pysamiterators import CachedFasta, MatePairIterator
 from scipy import stats
-
 from singlecellmultiomics.bamProcessing import merge_bams, sorted_bam_file
 from singlecellmultiomics.features import FeatureContainer
 from singlecellmultiomics.fragment import SingleEndTranscriptFragment

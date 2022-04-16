@@ -14,7 +14,6 @@ import numpy as np
 import pandas as pd
 import pysam
 import pysamiterators
-
 import singlecellmultiomics
 import singlecellmultiomics.bamProcessing
 import singlecellmultiomics.fragment

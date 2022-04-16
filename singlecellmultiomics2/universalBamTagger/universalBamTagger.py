@@ -18,7 +18,6 @@ import warnings
 import numpy as np
 import pysam
 import pysamiterators.iterators as pysamIterators
-
 import singlecellmultiomics.features
 import singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods
 from singlecellmultiomics.alleleTools import alleleTools

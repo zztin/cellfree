@@ -17,8 +17,6 @@ import pysam
 from more_itertools import windowed
 from pysam import FastaFile
 from pysamiterators import CachedFasta
-from statsmodels.nonparametric.smoothers_lowess import lowess
-
 from singlecellmultiomics.bamProcessing import (
     get_contig_size,
     get_contig_sizes,
@@ -32,6 +30,7 @@ from singlecellmultiomics.utils import (
     pool_wrapper,
     reverse_complement,
 )
+from statsmodels.nonparametric.smoothers_lowess import lowess
 
 
 def _generate_count_dict(args):
@@ -548,7 +547,6 @@ def obtain_counts(commands, reference, live_update=True, show_n_cells=4, update_
 
     if live_update:
         import matplotlib.pyplot as plt
-
         from singlecellmultiomics.utils.plotting import GenomicPlot
         cell_plots = {}
         for cell_index in range(show_n_cells):

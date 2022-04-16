@@ -9,7 +9,6 @@ import statsmodels.api as sm
 import statsmodels.formula.api as smf
 from scipy import stats
 from scipy.ndimage import gaussian_filter
-
 from singlecellmultiomics.utils import pool_wrapper
 
 

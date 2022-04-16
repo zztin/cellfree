@@ -5,7 +5,6 @@ import os
 
 import pysam
 import pysamiterators
-
 import singlecellmultiomics.bamProcessing.bamFunctions as bf
 import singlecellmultiomics.fragment
 import singlecellmultiomics.molecule

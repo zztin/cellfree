@@ -9,7 +9,6 @@ import numpy as np
 import pandas as pd
 import pysam
 from more_itertools import chunked
-
 from singlecellmultiomics.features import FeatureContainer
 from singlecellmultiomics.utils import pool_wrapper
 

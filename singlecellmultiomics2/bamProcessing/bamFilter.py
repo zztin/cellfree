@@ -6,7 +6,6 @@ import os
 import sys
 
 import pysam
-
 from singlecellmultiomics.bamProcessing.bamToCountTable import (
     read_has_alternative_hits_to_non_alts,
 )

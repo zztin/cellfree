@@ -3,9 +3,6 @@ from datetime import datetime
 from itertools import chain
 
 import pysam
-
-import cellfree
-from cellfree.read_unit.chic import CHICFragment
 from singlecellmultiomics.bamProcessing.bamFunctions import (
     MapabilityReader,
     add_blacklisted_region,
@@ -23,6 +20,9 @@ from singlecellmultiomics.universalBamTagger.tagging import (
     run_tagging_tasks,
     write_job_gen_to_bed,
 )
+
+import cellfree
+from cellfree.read_unit.chic import CHICFragment
 
 
 def write_status(output_path, message):

@@ -6,7 +6,6 @@ import numpy as np
 import pandas as pd
 import pyBigWig
 import pysam
-
 from singlecellmultiomics.bamProcessing import get_contig_sizes
 
 

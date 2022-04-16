@@ -6,10 +6,9 @@ import os
 import sys
 
 import pkg_resources
-from colorama import Fore, Style, init
-
 import singlecellmultiomics.barcodeFileParser.barcodeFileParser as barcodeFileParser
 import singlecellmultiomics.libraryDetection.sequencingLibraryListing as sequencingLibraryListing
+from colorama import Fore, Style, init
 from singlecellmultiomics.fastqProcessing.fastqHandle import FastqHandle
 from singlecellmultiomics.modularDemultiplexer.baseDemultiplexMethods import (
     NonMultiplexable,

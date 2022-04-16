@@ -4,9 +4,8 @@ import collections
 
 import matplotlib
 import matplotlib.pyplot as plt
-from matplotlib.ticker import MaxNLocator
-
 import singlecellmultiomics.pyutils as pyutils
+from matplotlib.ticker import MaxNLocator
 
 from .statistic import StatisticHistogram
 

@@ -4,7 +4,6 @@ import collections
 
 import pysam
 import pysamiterators.iterators
-
 from singlecellmultiomics.fragment import Fragment
 from singlecellmultiomics.molecule import Molecule
 from singlecellmultiomics.universalBamTagger import QueryNameFlagger

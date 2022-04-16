@@ -6,7 +6,6 @@ from collections import Counter
 import numpy as np
 from pysam import AlignmentFile, FastaFile
 from pysamiterators import CachedFasta
-
 from singlecellmultiomics.utils.prefetch import Prefetcher
 
 

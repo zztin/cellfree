@@ -6,7 +6,6 @@ import os
 import sys
 
 import pysam
-
 from singlecellmultiomics.bamProcessing import get_sample_to_read_group_dict
 from singlecellmultiomics.utils.path import get_valid_filename
 

@@ -12,7 +12,6 @@ import pandas as pd
 import pysam
 import seaborn as sns
 from matplotlib.patches import Circle
-
 from singlecellmultiomics.utils import get_contig_list_from_fasta, is_main_chromosome
 
 

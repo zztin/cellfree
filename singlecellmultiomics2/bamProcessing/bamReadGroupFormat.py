@@ -6,7 +6,6 @@ import sys
 from datetime import datetime
 
 import pysam
-
 import singlecellmultiomics
 from singlecellmultiomics.bamProcessing.bamFunctions import (
     get_read_group_from_read,

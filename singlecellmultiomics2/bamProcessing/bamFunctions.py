@@ -10,7 +10,6 @@ from typing import Generator
 import numpy as np
 import pandas as pd
 import pysam
-
 from singlecellmultiomics.bamProcessing.pileup import pileup_truncated
 from singlecellmultiomics.utils import BlockZip, Prefetcher, get_file_type
 

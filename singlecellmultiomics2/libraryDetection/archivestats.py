@@ -8,7 +8,6 @@ import os
 from types import SimpleNamespace
 
 import pkg_resources
-
 import singlecellmultiomics.barcodeFileParser.barcodeFileParser as barcodeFileParser
 import singlecellmultiomics.libraryDetection.sequencingLibraryListing as sequencingLibraryListing
 from singlecellmultiomics.modularDemultiplexer.demultiplexingStrategyLoader import (

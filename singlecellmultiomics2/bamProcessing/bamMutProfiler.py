@@ -17,7 +17,6 @@ import pandas as pd
 import pysam
 import seaborn as sns
 from colorama import Fore, Style
-
 from singlecellmultiomics.bamProcessing.bamBinCounts import (
     count_fragments_binned,
     gc_correct_cn_frame,

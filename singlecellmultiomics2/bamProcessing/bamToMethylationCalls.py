@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 from colorama import Fore, Style
-
 from singlecellmultiomics.bamProcessing.bamBinCounts import (
     count_methylation_binned,
     generate_commands,

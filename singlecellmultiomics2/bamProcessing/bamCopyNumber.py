@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import matplotlib
-
 import singlecellmultiomics
 
 matplotlib.rcParams['figure.dpi'] = 160
@@ -28,7 +27,6 @@ from matplotlib.backends.backend_pdf import PdfPages
 from matplotlib.ticker import MaxNLocator
 from scipy.cluster.hierarchy import fcluster, leaves_list, linkage
 from scipy.optimize import minimize
-
 from singlecellmultiomics.bamProcessing.bamBinCounts import (
     count_fragments_binned,
     gc_correct_cn_frame,

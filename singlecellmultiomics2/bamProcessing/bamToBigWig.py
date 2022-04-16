@@ -7,7 +7,6 @@ import numpy as np
 import pandas as pd
 import pyBigWig
 import pysam
-
 from singlecellmultiomics.bamProcessing import get_contig_sizes
 from singlecellmultiomics.bamProcessing.bamBinCounts import get_binned_counts
 from singlecellmultiomics.utils.path import get_valid_filename

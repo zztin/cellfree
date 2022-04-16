@@ -18,7 +18,6 @@ import pandas as pd
 import pysam
 import seaborn as sns
 from colorama import Fore, Style
-
 from singlecellmultiomics.bamProcessing.bamBinCounts import (
     count_fragments_binned,
     gc_correct_cn_frame,
@@ -32,7 +31,6 @@ import itertools
 from collections import OrderedDict, defaultdict
 
 import seaborn as sns
-
 import singlecellmultiomics
 from singlecellmultiomics.utils.sequtils import reverse_complement
 from singlecellmultiomics.variants.substitutions import (

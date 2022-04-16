@@ -16,7 +16,6 @@ import pandas as pd
 import pysam
 import seaborn as sns
 from colorama import Fore, Style
-
 from singlecellmultiomics.bamProcessing import get_contig_size, get_contig_sizes
 from singlecellmultiomics.bamProcessing.bamBinCounts import (
     count_methylation_binned,

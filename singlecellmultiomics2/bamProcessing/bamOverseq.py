@@ -9,7 +9,6 @@ import pandas as pd
 import pysam
 import seaborn as sns
 from more_itertools import grouper
-
 from singlecellmultiomics.bamProcessing.bamBinCounts import blacklisted_binning_contigs
 
 

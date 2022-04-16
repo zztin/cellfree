@@ -13,10 +13,9 @@ import numpy as np
 import pandas as pd
 import pysam
 import pysamiterators
+import singlecellmultiomics
 from more_itertools import chunked, windowed
 from scipy.interpolate import interp1d
-
-import singlecellmultiomics
 from singlecellmultiomics.bamProcessing import sorted_bam_file
 from singlecellmultiomics.bamProcessing.bamToCountTable import coordinate_to_bins
 

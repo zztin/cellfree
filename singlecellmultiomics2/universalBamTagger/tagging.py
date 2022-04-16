@@ -9,7 +9,6 @@ from typing import Generator
 from uuid import uuid4
 
 from pysam import AlignmentFile
-
 from singlecellmultiomics.bamProcessing import sorted_bam_file
 
 

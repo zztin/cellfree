@@ -15,7 +15,6 @@ import pysam
 from more_itertools import windowed
 from scipy.ndimage import gaussian_filter1d
 from scipy.signal import find_peaks
-
 from singlecellmultiomics.bamProcessing import get_contig_sizes
 from singlecellmultiomics.bamProcessing.bamBinCounts import get_binned_counts
 from singlecellmultiomics.bamProcessing.bamFunctions import (

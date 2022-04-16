@@ -15,7 +15,6 @@ from glob import glob
 import numpy as np
 import pandas as pd
 import pysam
-
 import singlecellmultiomics
 from singlecellmultiomics.alleleTools import AlleleResolver
 from singlecellmultiomics.bamProcessing import has_variant_reads, sorted_bam_file

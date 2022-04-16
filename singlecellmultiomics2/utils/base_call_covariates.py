@@ -16,7 +16,6 @@ import pandas as pd
 import pysam
 from pysam import AlignmentFile, FastaFile
 from pysamiterators import CachedFasta
-
 from singlecellmultiomics.bamProcessing import (
     get_contigs_with_reads,
     has_variant_reads,

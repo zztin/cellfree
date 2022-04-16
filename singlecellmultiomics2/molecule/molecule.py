@@ -11,10 +11,9 @@ import pandas as pd
 import pysam
 import pysamiterators
 import pysamiterators.iterators
-from cached_property import cached_property
-
 import singlecellmultiomics.alleleTools
 import singlecellmultiomics.bamProcessing
+from cached_property import cached_property
 from singlecellmultiomics.fragment import Fragment
 from singlecellmultiomics.utils import (
     base_probabilities_to_likelihood,

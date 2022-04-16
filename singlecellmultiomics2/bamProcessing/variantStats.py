@@ -11,11 +11,10 @@ import traceback
 import pandas as pd
 import pysam
 import pysamiterators
-from colorama import Fore, Style
-
 import singlecellmultiomics.fragment
 import singlecellmultiomics.molecule
 import singlecellmultiomics.pyutils
+from colorama import Fore, Style
 from singlecellmultiomics.bamProcessing.bamFunctions import (
     GATK_indel_realign,
     add_readgroups_to_header,

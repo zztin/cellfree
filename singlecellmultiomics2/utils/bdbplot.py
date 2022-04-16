@@ -15,7 +15,6 @@ from Bio.Seq import Seq
 from colorama import Fore  # ,Back, Style
 from colorama import Back, Style, init
 from lxml import etree
-
 from singlecellmultiomics.utils import bdbbio
 
 init(autoreset=True)

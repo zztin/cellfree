@@ -8,7 +8,6 @@ import numpy as np
 import pandas as pd
 import pysam
 import pysamiterators
-
 import singlecellmultiomics
 from singlecellmultiomics.fragment import NlaIIIFragment
 from singlecellmultiomics.molecule import MoleculeIterator, NlaIIIMolecule

@@ -16,7 +16,6 @@ import pysam
 import seaborn as sns
 from matplotlib.patches import Rectangle
 from scipy.ndimage import gaussian_filter
-
 from singlecellmultiomics.bamProcessing import get_contig_sizes, get_contigs_with_reads
 from singlecellmultiomics.bamProcessing.bamFunctions import mate_iter
 from singlecellmultiomics.features import FeatureContainer

@@ -13,10 +13,9 @@ import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 import pysam
+import singlecellmultiomics.pyutils as pyutils
 from colorama import Back, Fore, Style
 from pysamiterators import MatePairIteratorIncludingNonProper
-
-import singlecellmultiomics.pyutils as pyutils
 from singlecellmultiomics.bamProcessing import bam_is_processed_by_program
 from singlecellmultiomics.statistic import *
 from singlecellmultiomics.tagtools import tagtools

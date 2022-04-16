@@ -10,7 +10,6 @@ import numpy as np
 import pandas as pd
 import pyBigWig
 import pysam
-
 from singlecellmultiomics.bamProcessing import get_reference_path_from_bam
 from singlecellmultiomics.molecule import TAPS, MoleculeIterator
 from singlecellmultiomics.utils import invert_strand_f, is_autosome

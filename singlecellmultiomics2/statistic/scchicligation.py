@@ -6,9 +6,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
-from matplotlib.ticker import MaxNLocator
-
 import singlecellmultiomics.pyutils as pyutils
+from matplotlib.ticker import MaxNLocator
 
 from .statistic import StatisticHistogram
 

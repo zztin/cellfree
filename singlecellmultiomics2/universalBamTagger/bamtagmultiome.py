@@ -15,13 +15,12 @@ from typing import Generator
 import colorama
 import pkg_resources
 import pysam
-from pysamiterators import MatePairIterator, MatePairIteratorIncludingNonProper
-
 import singlecellmultiomics
 import singlecellmultiomics.alleleTools
 import singlecellmultiomics.features
 import singlecellmultiomics.fragment
 import singlecellmultiomics.molecule
+from pysamiterators import MatePairIterator, MatePairIteratorIncludingNonProper
 from singlecellmultiomics.bamProcessing import (
     get_contigs_with_reads,
     merge_bams,

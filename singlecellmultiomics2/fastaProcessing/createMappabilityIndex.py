@@ -9,7 +9,6 @@ import uuid
 import more_itertools
 import numpy as np
 import pysam
-
 import singlecellmultiomics.utils
 from singlecellmultiomics.utils import BlockZip
 

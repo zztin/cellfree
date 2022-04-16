@@ -12,9 +12,8 @@ from shutil import move
 
 import colorama
 import pysam
-from more_itertools import chunked
-
 import singlecellmultiomics
+from more_itertools import chunked
 from singlecellmultiomics.bamProcessing import merge_bams, sorted_bam_file
 from singlecellmultiomics.bamProcessing.bamBinCounts import blacklisted_binning_contigs
 from singlecellmultiomics.bamProcessing.bamFunctions import (

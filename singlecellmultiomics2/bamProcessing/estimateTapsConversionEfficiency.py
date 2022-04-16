@@ -12,7 +12,6 @@ import pandas as pd
 import pysam
 import seaborn as sns
 from pysamiterators import CachedFasta
-
 from singlecellmultiomics.bamProcessing.bamFunctions import get_reference_path_from_bam
 from singlecellmultiomics.fragment import CHICFragment, NlaIIIFragment
 from singlecellmultiomics.molecule import (

@@ -7,7 +7,6 @@ import sys
 from multiprocessing import Pool
 
 import pysam
-
 from singlecellmultiomics.utils.path import get_valid_filename
 
 
