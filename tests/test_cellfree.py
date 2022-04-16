@@ -1,6 +1,5 @@
 import inspect
 import os
-import subprocess
 
 from click.testing import CliRunner
 
@@ -38,5 +37,6 @@ def test_bam():
 
 
 def test_end_motif():
+    runner = CliRunner()
     result = runner.invoke(end_motif.end_motif)
     assert result.output == "end motif."
