@@ -1,7 +1,5 @@
 import click
 
-from cellfree.algorithm import end_motif
-
 
 @click.command()
 @click.option("--prepared-bamfile", help="Prepared file.")

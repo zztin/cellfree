@@ -48,6 +48,7 @@ files = [
     "cellfree",
     "tests"
 ]
+exclude = 'read_unit.py'
 ignore_missing_imports = true
 follow_imports = "silent"
 warn_redundant_casts = true
