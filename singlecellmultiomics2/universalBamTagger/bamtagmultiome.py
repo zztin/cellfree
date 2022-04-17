@@ -69,30 +69,28 @@ argparser.add_argument(
     default=None,
     help="Path to reference fast (autodected if not supplied)")
 
-# FIXME: should be required=True but this will block click test runner. Fix the code until it could be tested normally.
-argparser.add_argument('--bamfile', type=str, help="output bam file")
-#argparser.add_argument('-o', type=str, help="output bam file", required=True)
-# argparser.add_argument(
-#     '-method',
-#     type=str,
-#     default=None,
-#     required=True,
-#     help="""Protocol to tag, select from:nla, qflag, chic, nla_transcriptome, vasa, cs, cs_feature_counts,  nla_taps ,chic_taps, nla_no_overhang. nla (Data with digested by Nla III enzyme)
-#     nla (Data with digested by Nla III enzyme)
-#     qflag (Only add basic tags like sampple and UMI, no molecule assignment)
-#     chic (Data digested using mnase fusion)
-#     nla_transcriptome (Data with transcriptome and genome digested by Nla III )
-#     vasa (VASA transcriptomic data)
-#     cs (CELseq data, 1 and 2)
-#     cs_feature_counts (Single end, deduplicate using a bam file tagged using featurecounts, deduplicates a umi per gene)
-#     fl_feature_counts (deduplicate using a bam file tagged using featurecounts, deduplicates based on fragment position)
-#     nla_taps (Data with digested by Nla III enzyme and methylation converted by TAPS)
-#     chic_taps (Data with digested by mnase enzyme and methylation converted by TAPS)
-#     nla_tapsp_transcriptome (Add feature annotation to nla_ptaps mode )
-#     nla_taps_transcriptome  (Add feature annotation to nla_taps mode )
-#     nla_no_overhang (Data with digested by Nla III enzyme, without the CATG present in the reads)
-#     scartrace (Lineage tracing )
-#     """)
+argparser.add_argument('-o', type=str, help="output bam file", required=True)
+argparser.add_argument(
+    '-method',
+    type=str,
+    default=None,
+    required=True,
+    help="""Protocol to tag, select from:nla, qflag, chic, nla_transcriptome, vasa, cs, cs_feature_counts,  nla_taps ,chic_taps, nla_no_overhang. nla (Data with digested by Nla III enzyme)
+    nla (Data with digested by Nla III enzyme)
+    qflag (Only add basic tags like sampple and UMI, no molecule assignment)
+    chic (Data digested using mnase fusion)
+    nla_transcriptome (Data with transcriptome and genome digested by Nla III )
+    vasa (VASA transcriptomic data)
+    cs (CELseq data, 1 and 2)
+    cs_feature_counts (Single end, deduplicate using a bam file tagged using featurecounts, deduplicates a umi per gene)
+    fl_feature_counts (deduplicate using a bam file tagged using featurecounts, deduplicates based on fragment position)
+    nla_taps (Data with digested by Nla III enzyme and methylation converted by TAPS)
+    chic_taps (Data with digested by mnase enzyme and methylation converted by TAPS)
+    nla_tapsp_transcriptome (Add feature annotation to nla_ptaps mode )
+    nla_taps_transcriptome  (Add feature annotation to nla_taps mode )
+    nla_no_overhang (Data with digested by Nla III enzyme, without the CATG present in the reads)
+    scartrace (Lineage tracing )
+    """)
 argparser.add_argument(
     '-qflagger',
     type=str,
