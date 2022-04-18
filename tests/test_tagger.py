@@ -5,7 +5,7 @@ import unittest
 
 import pysam
 
-import singlecellmultiomics2.universalBamTagger.bamtagmultiome as tm
+import singlecellmultiomics_ng.universalBamTagger.bamtagmultiome as tm
 
 """
 These tests check if the tagger is working correctly
