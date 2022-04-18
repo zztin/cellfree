@@ -17,9 +17,9 @@ def main(verbose, conf):
 
 
 @click.command()
-@click.option("--bamfile", help="Single bamfile")
-def tag(bamfile):
-    bam.run_tagging(bamfile)
+@click.argument("bam_file")
+def tag(bam_file):
+    bam.run_tagging(bam_file)
 
 
 main.add_command(prepare.prepare)
