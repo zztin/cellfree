@@ -124,9 +124,13 @@ def prepare_bam_single_thread(
 
 def read_prepared_bam_to_molecules(
     input_prepared_bam,
+    reference=None,
     head=None,
     ignore_bam_issues=False,
 ):
+    """
+    No deduplication needed. Every fragment as a molecule.
+    """
     input_bam = pysam.AlignmentFile(
         input_prepared_bam, "rb", ignore_truncation=ignore_bam_issues, threads=4
     )
@@ -140,6 +144,7 @@ def read_prepared_bam_to_molecules(
             perform_qflag=False,
             max_buffer_size=1000000,
             yield_overflow=False,
+
         )
     )
 
