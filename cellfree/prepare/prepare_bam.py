@@ -144,7 +144,6 @@ def read_prepared_bam_to_molecules(
             perform_qflag=False,
             max_buffer_size=1000000,
             yield_overflow=False,
-
         )
     )
 

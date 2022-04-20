@@ -1,13 +1,14 @@
 import matplotlib.pyplot as plt
 
 
-def plot_kmer_dist(out_path,
-                   motifs,
-                   ind,
-                   colors,# =['blue', "red", "teal", "yellow"],
-                   relative=True,
-                   figsize=(10, 4)
-                   ):
+def plot_kmer_dist(
+    out_path,
+    motifs,
+    ind,
+    colors,  # =['blue', "red", "teal", "yellow"],
+    relative=True,
+    figsize=(10, 4),
+):
     """
     motifs: [[AATT, AATC,...]]
     ind: name of the input list
@@ -19,10 +20,13 @@ def plot_kmer_dist(out_path,
             sum_total = sum(x.values())
         else:
             sum_total = 1
-        plt.bar([k for k,v in  sorted(x.items())],[v/sum_total for k,v in  sorted(x.items())],
-                label = f"{ind[i]}",
-                alpha=0.3,
-                color = colors[i])
-    plt.xticks( rotation='vertical')
+        plt.bar(
+            [k for k, v in sorted(x.items())],
+            [v / sum_total for k, v in sorted(x.items())],
+            label=f"{ind[i]}",
+            alpha=0.3,
+            color=colors[i],
+        )
+    plt.xticks(rotation="vertical")
     plt.legend()
     plt.savefig(f"{out_path}", dpi=100)
