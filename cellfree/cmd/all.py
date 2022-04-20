@@ -18,6 +18,7 @@ def all(prepared_bamfile, out_path, sample, refpath, add_label):
     print("Molecule count:", table.shape[0])
     # check if path exist, if not, create folder
     examine_path(f"{out_path}/feature_table/")
-    table.to_csv(f"{out_path}/feature_table/{sample}.tsv", sep="\t")
     table.to_pickle(f"{out_path}/feature_table/{sample}.pickle.gz")
+    table.to_csv(f"{out_path}/feature_table/{sample}.tsv", index=False, sep="\t")
+
     print("table successfully stored.")
