@@ -14,6 +14,8 @@ def run(prepared_bam):
     unmapped_length = []
     molecules = read_prepared_bam_to_molecules(prepared_bam)
     for molecule in molecules:
+        # TODO: molecule.strand is True if molecule is on reverse strand (should have only 1 value,
+        # TODO: if contains flip, combine into forward strand?)
         if not molecule.strand:
             forward_strand_length.append(abs(molecule.spanEnd - molecule.spanStart))
         else:
