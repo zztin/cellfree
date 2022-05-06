@@ -71,13 +71,16 @@ class Motifs:
         arr_3_end = []
         arr_5_end_upstream = []
         arr_3_end_downstream = []
+        arr_score = []
 
         for i, molecule in enumerate(self.molecules):
             arr_read_name.append(f"m{i}")
-            arr_chromosome.append(molecule.chromosome)
+            assert type(molecule.chromosome) is str
+            arr_chromosome.append(str(molecule.chromosome))
             arr_start.append(molecule.spanStart)
             arr_end.append(molecule.spanEnd)
-            arr_dir += ["rev" if molecule.strand else "fwd"]
+            assert type(molecule.strand) is bool
+            arr_dir += ["-" if molecule.strand else "+"]
             arr_read_length.append(molecule.spanEnd - molecule.spanStart)
             frag_seq = get_fragment_neighbouring_sequence(
                 molecule, self.bp_count, self.reference
@@ -90,11 +93,12 @@ class Motifs:
             # self.table[molecule.readname][f"3_end_{self.bp_count}"] = molecule.get_fragment_span_sequence[-4:]
             # self.table[molecule.readname][f"5_end_upstream_{self.bp_count}"] =
             # self.table[molecule.readname][f"3_end_downstream_{self.bp_count}"] = molecule.get_fragment_neighbouring_sequence[-4:]
-        self.table["arr_uuid"] = arr_read_name
-        self.table["arr_chromosome"] = arr_chromosome
-        self.table["arr_start"] = arr_start
-        self.table["arr_end"] = arr_end
-        self.table["arr_dir"] = arr_dir
+        self.table["chrom"] = arr_chromosome
+        self.table["chromStart"] = arr_start
+        self.table["chromEnd"] = arr_end
+        self.table["name"] = arr_read_name
+        self.table["score"] = 0
+        self.table["strand"] = arr_dir
         self.table["arr_read_length"] = arr_read_length
         self.table["arr_5_end_upstream"] = arr_5_end_upstream
         self.table["arr_5_end"] = arr_5_end

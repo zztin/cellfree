@@ -17,8 +17,7 @@ def end_motif(prepared_bamfile, out_path, sample, refpath):
     # check if path exist, if not, create folder
     examine_path(f"{out_path}/feature_table/")
     examine_path(f"{out_path}/end_motifs/")
-    table.to_csv(f"{out_path}/feature_table/{sample}.tsv", sep="\t")
-    print("table successfully stored.")
+    print("plotting is not implemented yet.")
     # plot_kmer_dist(f"{out_path}/end_motifs/{sample}.png",
     #                table['arr_5_end'],
     #                '5 prime end',
