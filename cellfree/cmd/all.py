@@ -1,3 +1,5 @@
+import sys
+
 import click
 from pysam import FastaFile
 
@@ -7,12 +9,19 @@ from cellfree.utils.pyutils import examine_path
 
 @click.command()
 @click.argument("prepared_bamfile")
-@click.option("--out-path", default="~/00_projects/cellfree-working/")
+@click.option("--out-path")
 @click.option("--sample", default="TEST")
-@click.option("--refpath", default="~/00_projects/cellfree-working/")
+@click.option("--refpath", help="Reference file is necessary to get end motif k-mer.")
 @click.option("--add-label", default=None, type=str)
 def all(prepared_bamfile, out_path, sample, refpath, add_label):
-    reference = FastaFile(refpath)
+    if refpath is None:
+        print(
+            "[Error] Please add a path to reference genome file by supplying --refpath and resubmit."
+        )
+        sys.exit(1)
+    else:
+        reference = FastaFile(refpath)
+
     table = get_end_motif.run(prepared_bamfile, reference, table=None)
     table["label"] = add_label
     print("Molecule count:", table.shape[0])

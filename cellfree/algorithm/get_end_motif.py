@@ -99,11 +99,11 @@ class Motifs:
         self.table["name"] = arr_read_name
         self.table["score"] = 0
         self.table["strand"] = arr_dir
-        self.table["arr_read_length"] = arr_read_length
-        self.table["arr_5_end_upstream"] = arr_5_end_upstream
-        self.table["arr_5_end"] = arr_5_end
-        self.table["arr_3_end"] = arr_3_end
-        self.table["arr_3_end_downstream"] = arr_3_end_downstream
+        self.table["rlen"] = arr_read_length
+        self.table["end5upstream"] = arr_5_end_upstream
+        self.table["end5"] = arr_5_end
+        self.table["end3"] = arr_3_end
+        self.table["end3downstream"] = arr_3_end_downstream
 
 
 def run(prepared_bam, reference, table=None, out_path="../test_out.tsv"):
