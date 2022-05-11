@@ -1,17 +1,17 @@
 ### Overview:
 Cell free DNA are DNA outside of cells in a bio-liquid. The mapping location and length of cell-free DNA are meaningful,
-as well as the genomic variants they contains. This package focus on sequencing data acquired by methods designed for 
-cell-free DNA sequencing. There are multiple popular sequencing methods, each may require different preprocessing. 
+as well as the genomic variants they contains. This package focus on sequencing data acquired by methods designed for
+cell-free DNA sequencing. There are multiple popular sequencing methods, each may require different preprocessing.
 - ssDNA preparation
 - dsDNA preparation
 - Nanopore Cyclomics preparation
 - Nanopore short read preparation
 
-The aim of this python package is to provide friendly tool for users to analyses cell-free DNA sequencing data with 
-ease. We aim to update to include most analyses done for cell-free DNA with the focus on fragmentomics 
-features. 
+The aim of this python package is to provide friendly tool for users to analyses cell-free DNA sequencing data with
+ease. We aim to update to include most analyses done for cell-free DNA with the focus on fragmentomics
+features.
 
-Input file format is [bam files](https://samtools.github.io/hts-specs/SAMv1.pdf). 
+Input file format is [bam files](https://samtools.github.io/hts-specs/SAMv1.pdf).
 Use [samtools](http://www.htslib.org) to sort and create index.
 
 (Later on we can discuss if we want to harness information from raw fastq files and add relevant functionalities.)
@@ -34,7 +34,7 @@ cellfree overlay --track_bed <track1.bed,track2.bed> --tsv <out_per_read.tsv> --
 alternative file format: track3.bigwig
 
 ### Cell free DNA methylation
-This function is only applicable to cfDNA with methylation measured. Either with bi-sulfite sequencing or with 
+This function is only applicable to cfDNA with methylation measured. Either with bi-sulfite sequencing or with
 nanopore sequencing. Determine the ratio of methylation of the cell-free DNA and surrounding region (per MB bin.)
 ```bash
 cellfree call_methyl --tsv <out_per_read.tsv> --hist <out_per_bin.tsv> <bamfile_list>
@@ -56,9 +56,7 @@ cellfree plot --feature_list <list_of_subcommand> --input <tsv or bamfile_list> 
 ```
 
 ### cell free DNA genomic features
-This component integrates other available tools since it is universal not restricted to cell-free DNA analysis. 
+This component integrates other available tools since it is universal not restricted to cell-free DNA analysis.
 #### CNV
 #### SNV
 #### SV
-
-
