@@ -76,7 +76,7 @@ class Motifs:
         for i, molecule in enumerate(self.molecules):
             arr_read_name.append(f"m{i}")
             assert type(molecule.chromosome) is str
-            arr_chromosome.append(str(molecule.chromosome))
+            arr_chromosome.append("chr" + str(molecule.chromosome))
             arr_start.append(molecule.spanStart)
             arr_end.append(molecule.spanEnd)
             assert type(molecule.strand) is bool
