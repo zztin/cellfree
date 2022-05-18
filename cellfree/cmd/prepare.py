@@ -4,7 +4,10 @@ from cellfree.prepare.prepare_bam import prepare_bam_single_thread
 
 
 @click.command()
-@click.option("--out-bam-path", help="Path to output bam file")
+@click.option(
+    "--out-bam-path",
+    help="Path to output bam file including prefix. (_xxx.sorted.bam will be added to the end.",
+)
 @click.argument("input_bam_path")
 def prepare(
     input_bam_path,
