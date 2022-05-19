@@ -195,8 +195,8 @@ class CHICFragment(Fragment):
             return False
 
         # Check distance between the fragments: --> change to check if they overlap
-        self.span[1]  # start
-        self.span[2]  # end
+        # self.span[1] # start
+        # self.span[2] # end
         if (
             self.assignment_radius > 0
             and abs(self.site_location[1] - other.site_location[1])

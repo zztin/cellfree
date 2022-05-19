@@ -12,7 +12,6 @@ from singlecellmultiomics.bamProcessing.bamFunctions import (
     write_program_tag,
 )
 from singlecellmultiomics.molecule import MoleculeIterator, ReadIterator
-from singlecellmultiomics.molecule.chic import CHICMolecule
 from singlecellmultiomics.molecule.consensus import calculate_consensus
 from singlecellmultiomics.universalBamTagger.tagging import (
     generate_tasks,
@@ -22,6 +21,7 @@ from singlecellmultiomics.universalBamTagger.tagging import (
 )
 
 import cellfree
+from cellfree.molecule.cyclomics import CHICMolecule
 from cellfree.read_unit.chic import CHICFragment
 
 
@@ -29,6 +29,15 @@ def write_status(output_path, message):
     status_path = output_path.replace(".bam", ".status.txt")
     with open(status_path, "w") as o:
         o.write(message + "\n")
+
+
+def add_read_group_SM_tag(read_bam, bam_with_rg, SM_tag):
+    with pysam.AlignmentFile(read_bam, "r", ignore_truncation=True) as g:
+        with sorted_bam_file(bam_with_rg, origin_bam=g) as f:
+            for i, read in enumerate(g):
+                read.set_tag("SM", SM_tag)
+                f.write(read)
+    return bam_with_rg
 
 
 def prepare_bam_single_thread(
@@ -44,6 +53,7 @@ def prepare_bam_single_thread(
     input_bam = pysam.AlignmentFile(
         input_bam_path, "rb", ignore_truncation=ignore_bam_issues, threads=4
     )
+
     input_header = input_bam.header.as_dict()
     reference = get_reference_from_pysam_alignmentFile(input_bam_path)
 
@@ -53,7 +63,7 @@ def prepare_bam_single_thread(
         program_name="cellfree",
         command_line=" ".join(sys.argv),
         version=cellfree.__version__,
-        description=f'SingleCellMultiOmics molecule processing, executed at {datetime.now().strftime("%d/%m/%Y %H:%M:%S")}',
+        description=f'Cellfree molecule processing, executed at {datetime.now().strftime("%d/%m/%Y %H:%M:%S")}',
     )
 
     print(f"Started writing to {out_bam_path}")

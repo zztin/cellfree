@@ -3,7 +3,8 @@ import collections
 from singlecellmultiomics.molecule.featureannotatedmolecule import (
     FeatureAnnotatedMolecule,
 )
-from singlecellmultiomics.molecule.molecule import Molecule
+
+from cellfree.molecule.molecule import Molecule
 
 
 class CHICMolecule(Molecule):
@@ -23,6 +24,7 @@ class CHICMolecule(Molecule):
 
         # Extracted from fragments:
         self.assignment_radius = None
+        self.read_names = None
 
     def _add_fragment(self, fragment):
         # Update the cut coordinate tho the (left most extreme value)
@@ -46,7 +48,8 @@ class CHICMolecule(Molecule):
                 )  # this is the coordinate
 
         # else : writing a fragment which has no cut location associated
-
+        if self.read_name is None:
+            self.read_name = fragment.read_names
         Molecule._add_fragment(self, fragment)
 
     def get_cut_site(self):
@@ -71,7 +74,8 @@ class CHICMolecule(Molecule):
         ):
             for frag in self:
                 frag.set_meta("DS", self.site_location[1])
-
+        if self.read_name is not None:
+            self.set_meta("RN", self.read_name)
         Molecule.write_tags(self)
 
     def is_valid(self, set_rejection_reasons=False):

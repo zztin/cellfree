@@ -1,10 +1,3 @@
-# Each bam file record is a read unit (can contain fastq read1 + fastq read2??).
-# Each read is a bam file record read. Multiple reads mapping to the same genomics location can be deduplicated and become a molecule.
-# A molecule can contain multiple reads.
-# A molecule that mapped to different locations are molecule that contains Structure Variants (SV). They contains reads with same read name but different mapping location.
-# Read = Fragment in SingleCellMultiOmics
-
-
 import itertools
 
 import pysamiterators.iterators
@@ -28,8 +21,8 @@ class Fragment:
     Example:
         Generate a Fragment with a single associated read::
 
-            >>> from singlecellmultiomics.molecule import Molecule
-            >>> from singlecellmultiomics.fragment import Fragment
+            >>> from cellfree.molecule.molecule import Molecule
+            >>> from cellfree.read_unit.read_unit import Fragment
             >>> import pysam
             >>> read = pysam.AlignedSegment()
             >>> read.reference_start = 30
@@ -72,6 +65,7 @@ class Fragment:
         library_name: str = None,  # Overwrites the library name
         single_end: bool = False,
         read_name: str = None,
+        sample: str = None,
     ):
         """
         Initialise Fragment
@@ -135,6 +129,7 @@ class Fragment:
         self.single_end = single_end
         self.read_name = read_name
         self.rca_count = 1
+        self.sample = sample
 
         # Span:\
         self.span = [None, None, None]
@@ -804,8 +799,8 @@ class Fragment:
             the two objects <= umi_hamming_distance
 
         Example:
-            >>> from singlecellmultiomics.molecule import Molecule
-            >>> from singlecellmultiomics.fragment import Fragment
+            >>> from cellfree.molecule import Molecule
+            >>> from cellfree.read_unit import Fragment
             >>> import pysam
             >>> # Create reads (read_A, and read_B), they both belong to the same
             >>> # cell and have 1 hamming distance between their UMI's

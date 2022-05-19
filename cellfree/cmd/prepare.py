@@ -24,4 +24,4 @@ def prepare(
         no_source_reads=False,
     )
 
-    print("prepare subcommand is called, yay!")
+    print("Finished. Bam file has been prepared for calculating length and end motifs.")
