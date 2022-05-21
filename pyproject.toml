@@ -110,6 +110,11 @@ description = "A cell free DNA analysis suite"
 license = "GNU General Public License v3"
 readme = "docs/README.md"
 repository = "https://github.com/zztin/cellfree"
+packages = [
+       { include = "cellfree" },
+       { include = "singlecellmultiomics_ng" },
+]
+
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.11"
