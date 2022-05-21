@@ -16,11 +16,12 @@ RUN pip install "poetry==$POETRY_VERSION"
 # Copy only requirements to cache them in docker layer
 WORKDIR /cellfree-workspace
 COPY poetry.lock pyproject.toml /cellfree-workspace/
-
 # Project initialization:
 RUN poetry config virtualenvs.create false
 RUN poetry install --no-root --no-dev --no-interaction --no-ansi
 # Creating folders, and files for a project:
-COPY ./cellfree-0.0.1-py3-none-any.whl /cellfree-workspace/
-#COPY dist/cellfree-0.0.1-py3-none-any.whl /cellfree-workspace/
-RUN pip install /cellfree-workspace/cellfree-0.0.1-py3-none-any.whl
+COPY ./cellfree-0.0.2-py3-none-any.whl /cellfree-workspace/
+RUN pip install /cellfree-workspace/cellfree-0.0.2-py3-none-any.whl
+# Creating
+WORKDIR /app
+COPY ./cellfree/prepare/protocol_cyclomics/tag_bam_by_json_metadata.py /app/

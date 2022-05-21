@@ -6,6 +6,9 @@ import json
 import pysam
 from singlecellmultiomics.bamProcessing.bamFunctions import sorted_bam_file
 
+# Supress [E::idx_find_and_load] Could not retrieve index file for, see https://github.com/pysam-developers/pysam/issues/939
+pysam.set_verbosity(0)
+
 
 def load_metadata(json_path):
     # load input:
@@ -71,8 +74,6 @@ if __name__ == "__main__":
         else:
             with_backbone.append(read)
             backbone_summary[read.get_tag("YB")] += 1
-            print(backbone_summary)
-            print(len(no_backbone))
         # TODO: Add other tags - (a) nanopore sequencing info, (b) start and end of each unit
     # Write file no backbone
     read_groups = dict()
