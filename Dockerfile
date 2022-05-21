@@ -2,6 +2,7 @@
 FROM python:3.9.13-bullseye AS development_build
 LABEL maintainer="litingchen16@gmail.com"
 
+ARG VERSION_TAG
 ARG CELLFREE_ENV
 ENV CELLFREE_ENV=${CELLFREE_ENV} \
   PYTHONFAULTHANDLER=1 \
@@ -20,8 +21,8 @@ COPY poetry.lock pyproject.toml /cellfree-workspace/
 RUN poetry config virtualenvs.create false
 RUN poetry install --no-root --no-dev --no-interaction --no-ansi
 # Creating folders, and files for a project:
-COPY ./cellfree-0.0.2-py3-none-any.whl /cellfree-workspace/
-RUN pip install /cellfree-workspace/cellfree-0.0.2-py3-none-any.whl
+COPY ./cellfree-${VERSION_TAG}-py3-none-any.whl /cellfree-workspace/
+RUN pip install /cellfree-workspace/cellfree-${VERSION_TAG}-py3-none-any.whl
 # Creating
-WORKDIR /app
-COPY ./cellfree/prepare/protocol_cyclomics/tag_bam_by_json_metadata.py /app/
+WORKDIR /
+COPY ./cellfree/prepare/protocol_cyclomics/tag_bam_by_json_metadata.py /
