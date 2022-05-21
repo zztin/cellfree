@@ -76,11 +76,11 @@ if __name__ == "__main__":
             backbone_summary[read.get_tag("YB")] += 1
         # TODO: Add other tags - (a) nanopore sequencing info, (b) start and end of each unit
     # Write file no backbone
-    read_groups = dict()
+    #    read_groups = dict()
     with sorted_bam_file(
         f"{args.out_path}/{name_suffix}_no_bb.tagged.sorted.bam",
         header=input_header,
-        read_groups=read_groups,
+        #        read_groups=read_groups,
     ) as out:
         for read in no_backbone:
             out.write(read)
@@ -89,7 +89,7 @@ if __name__ == "__main__":
     with sorted_bam_file(
         f"{args.out_path}/{name_suffix}_w_bb.tagged.sorted.bam",
         header=input_header,
-        read_groups=read_groups,
+        #        read_groups=read_groups,
     ) as out:
         for read in with_backbone:
             out.write(read)
