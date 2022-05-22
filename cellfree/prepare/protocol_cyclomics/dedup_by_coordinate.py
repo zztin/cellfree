@@ -3,7 +3,6 @@ import os
 import time
 
 import pysam
-import singlecellmultiomics
 from singlecellmultiomics.bamProcessing import sorted_bam_file
 from singlecellmultiomics.bamProcessing.bamFunctions import (
     get_reference_from_pysam_alignmentFile,
@@ -12,12 +11,12 @@ from singlecellmultiomics.fastaProcessing import CachedFastaNoHandle
 from singlecellmultiomics.utils.prefetch import UnitialisedClass
 
 from cellfree.molecule.cyclomics import CHICMolecule
-
-# from singlecellmultiomics.molecule.chic import CHICMolecule
 from cellfree.molecule.iterator import MoleculeIterator
-
-# from singlecellmultiomics.fragment import CHICFragment
 from cellfree.read_unit.chic import CHICFragment
+
+# Supress [E::idx_find_and_load] Could not retrieve index file for, see https://github.com/pysam-developers/pysam/issues/939
+pysam.set_verbosity(0)
+
 
 if __name__ == "__main__":
     pid = os.getpid()
@@ -106,4 +105,4 @@ if __name__ == "__main__":
         os.remove(SM_bam)
         os.remove(f"{SM_bam}.bai")
 
-print((time.time() - timeA) / 60, "min")
+    print((time.time() - timeA) / 60, "min")
