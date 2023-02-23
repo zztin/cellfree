@@ -133,6 +133,7 @@ pyBigWig = "^0.3.18"
 statsmodels = "^0.13.2"
 sklearn = "^0.0"
 cached-property = "^1.5.2"
+cyvcf2 = "^0.30.18"
 
 [tool.poetry.dev-dependencies]
 # task management
